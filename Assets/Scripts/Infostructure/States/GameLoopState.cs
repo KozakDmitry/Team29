@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Infostructure.States
+namespace Scripts.Infostructure.States
 {
     public class GameLoopState : IState
     {

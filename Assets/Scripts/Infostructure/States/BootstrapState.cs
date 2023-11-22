@@ -1,10 +1,13 @@
-﻿using Infostructure.Factory;
-using Infostructure.Services;
-using Infostructure.Services.Input;
+﻿using Scripts.Infostructure.AssetManagment;
+using Scripts.Infostructure.Factory;
+using Scripts.Infostructure.Services;
+using Scripts.Infostructure.Services.Input;
+using Scripts.Infostructure.Services.PersistentProgress;
+using Scripts.Infostructure.Services.SaveLoad;
 using System;
 using UnityEngine;
 
-namespace Infostructure.States
+namespace Scripts.Infostructure.States
 {
     public class BootstrapState : IState
     {
@@ -31,7 +34,10 @@ namespace Infostructure.States
         private void RegisterServices()
         {
             _services.RegisterSingle<IInputService>(InputService());
-            _services.RegisterSingle<IGameFactory>(new GameFactory());
+            _services.RegisterSingle<IAssets>(new AssetManager());
+            _services.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
+            _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssets>()));
+            _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(), _services.Single<IGameFactory>()));
         }
 
 

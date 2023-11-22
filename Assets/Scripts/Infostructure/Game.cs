@@ -1,7 +1,7 @@
-﻿using Infostructure.Services;
-using Infostructure.States;
+﻿using Scripts.Infostructure.Services;
+using Scripts.Infostructure.States;
 
-namespace Infostructure
+namespace Scripts.Infostructure
 {
     public class Game
     {

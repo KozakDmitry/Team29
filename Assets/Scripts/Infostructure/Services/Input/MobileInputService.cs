@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Infostructure.Services.Input
+namespace Scripts.Infostructure.Services.Input
 {
     public class MobileInputService : InputService 
     {

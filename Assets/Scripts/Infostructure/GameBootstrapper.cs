@@ -1,7 +1,7 @@
-using Infostructure.States;
+using Scripts.Infostructure.States;
 using UnityEngine;
 
-namespace Infostructure
+namespace Scripts.Infostructure
 {
     public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
     {

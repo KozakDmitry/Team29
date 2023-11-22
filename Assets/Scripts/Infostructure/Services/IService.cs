@@ -1,4 +1,4 @@
-﻿namespace Infostructure.Services
+﻿namespace Scripts.Infostructure.Services
 {
     public interface IService
     {

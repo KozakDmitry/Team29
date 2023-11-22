@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Infostructure.Services
+namespace Scripts.Infostructure.Services
 {
     public class AllServices
     {

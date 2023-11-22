@@ -1,7 +1,7 @@
-﻿using Infostructure.Services;
+﻿using Scripts.Infostructure.Services;
 using UnityEngine;
 
-namespace Infostructure.Services.Input
+namespace Scripts.Infostructure.Services.Input
 {
     public interface IInputService : IService
     {
