@@ -3,17 +3,16 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
 
-	//Variables visible in the inspector
     public float distance;
     public float height;
 	public float smoothness;
-	
-	public Transform camTarget;
+
+	[SerializeField]
+	private Transform camTarget;
 	
 	Vector3 velocity;
  
     void LateUpdate(){
-		//Check if the camera has a target to follow
         if(!camTarget)
             return;
 		
@@ -23,6 +22,8 @@ public class CameraFollow : MonoBehaviour {
 		pos.z = camTarget.position.z - distance;
 		
 		transform.position = Vector3.SmoothDamp(transform.position, pos, ref velocity, smoothness);
-		//transform.LookAt(camTarget.position);
     }
+
+    public void Follow(GameObject followObject) => 
+		this.camTarget = followObject.transform;
 }

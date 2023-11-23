@@ -1,5 +1,6 @@
 ﻿using Scripts.Infostructure.AssetManagment;
 using Scripts.Infostructure.Services.PersistentProgress;
+using Scripts.Logic;
 using Scripts.StaticData;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,6 +22,13 @@ namespace Scripts.Infostructure.Factory
         {
             _assets = assets;
             _staticData = staticData;
+        }
+
+        public GameObject CreateSpawner()
+        {
+            GameObject spawner = InstantiateRegistered("Enemies/EnemySpawner/Spawner");
+            spawner.GetComponent<EnemySpawner>().Construct(PlayerGameObject);
+            return spawner; 
         }
 
         public GameObject CreatePlayer(GameObject startPoint)
@@ -49,10 +57,10 @@ namespace Scripts.Infostructure.Factory
             }
         }
 
-        public GameObject CreateMonster(MonsterTypeID monsterTypeID, Transform parent)
+        public GameObject CreateMonster(MonsterTypeID monsterTypeID, Vector3 position)
         {
             MonsterStaticData monsterData = _staticData.ForMonster(monsterTypeID);
-            GameObject monster = Object.Instantiate(monsterData.Prefab, parent.position, Quaternion.identity);
+            GameObject monster = Object.Instantiate(monsterData.Prefab, position, Quaternion.identity);
             //var health = monster.GetComponent<IHealth>();
             //health.Current = monsterData.Hp;
             //health.Max = monsterData.Hp;

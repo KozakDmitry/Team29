@@ -10,7 +10,7 @@ namespace Scripts.Logic
     public class EnemySpawner : MonoBehaviour
     {
         
-        public GameObject enemy;
+        public GameObject enemyPrefab;
         public MoveArea area;
         public bool spawning = true;
 
@@ -19,7 +19,7 @@ namespace Scripts.Logic
 
         public MonsterTypeID MonsterTypeID;
         private string _id;
-
+        private Transform player;
 
         private IGameFactory _factory;
 
@@ -29,6 +29,10 @@ namespace Scripts.Logic
             _factory = AllServices.Container.Single<IGameFactory>();
         }
 
+        public void Construct(GameObject playerObject)
+        {
+            player = playerObject.transform;
+        }
         public void StartSpawning()
         {
             StartCoroutine(Spawn());
@@ -46,6 +50,23 @@ namespace Scripts.Logic
         }
 
 
+        private Vector3 GetEnemyPosition()
+        {
+            Vector3 spawnPosition = player.position;
+            Vector3 randomPosition = new Vector3(Random.Range(-spawnRange, spawnRange), 0, Random.Range(-spawnRange, spawnRange));
+
+            spawnPosition += randomPosition;
+
+            while (!ValidSpawnPoint(spawnPosition))
+            {
+                randomPosition = new Vector3(Random.Range(-spawnRange, spawnRange), 0, Random.Range(-spawnRange, spawnRange));
+                spawnPosition = player.position + randomPosition;
+            }
+
+            return spawnPosition;
+        }
+
+
 
         IEnumerator Spawn()
         {
@@ -53,7 +74,8 @@ namespace Scripts.Logic
             {
                 yield return new WaitForSeconds(delay);
 
-                GameObject monster = _factory.CreateMonster(MonsterTypeID, transform);
+                GameObject monster = _factory.CreateMonster(MonsterTypeID, GetEnemyPosition());
+
             }
         }
 

@@ -12,7 +12,8 @@ namespace Scripts.Infostructure.Factory
         List<ISavedProgress> ProgressWriters { get; }
         public void Register(ISavedProgressReader progressReader);
         public GameObject CreatePlayer(GameObject startPoint);
-        public GameObject CreateMonster(MonsterTypeID monsterTypeID, Transform parent);
+        public GameObject CreateSpawner();
+        public GameObject CreateMonster(MonsterTypeID monsterTypeID, Vector3 position);
         void CleanUp();
     }
 }

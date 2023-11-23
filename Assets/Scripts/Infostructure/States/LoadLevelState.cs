@@ -43,11 +43,18 @@ namespace Scripts.Infostructure.States
         private void InitWorld()
         {
             GameObject player = _gameFactory.CreatePlayer(GameObject.FindWithTag(StartPointTag));
+            InitSpawner();
             InitHUD(player);
-            //BindCamera(player);
+            BindCamera(player);
         }
-      
 
+        private void InitSpawner()
+        {
+            _gameFactory.CreateSpawner();
+        }
+
+        private void BindCamera(GameObject player) =>
+            Camera.main.GetComponent<CameraFollow>().Follow(player);
 
         private void InitHUD(GameObject player)
         {
