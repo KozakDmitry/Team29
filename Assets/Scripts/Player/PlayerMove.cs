@@ -16,10 +16,6 @@ namespace Scripts.Player
 
         private IInputService _inputService;
 
-        public Transform target;
-        public Transform targetIndicator;
-        [HideInInspector]
-        public bool safe;
         private void Awake()
         {
             _inputService = AllServices.Container.Single<IInputService>();
@@ -41,16 +37,6 @@ namespace Scripts.Player
 
             characterController.Move(movementVector * (movementSpeed * Time.deltaTime));
 
-
-
-           
-
-            if (!safe)
-            {
-                Vector3 targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
-                Quaternion targetIndicatorRotation = Quaternion.LookRotation((targetPosition - transform.position).normalized);
-                targetIndicator.rotation = Quaternion.Slerp(targetIndicator.rotation, targetIndicatorRotation, Time.deltaTime * 50);
-            }
         }
 
     }

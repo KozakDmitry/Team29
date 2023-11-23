@@ -11,7 +11,7 @@ namespace Scripts.Logic
     {
         
         public GameObject enemyPrefab;
-        public MoveArea area;
+        public MoveArea area; 
         public bool spawning = true;
 
         public float spawnRange;
