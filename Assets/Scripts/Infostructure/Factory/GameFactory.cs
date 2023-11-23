@@ -23,7 +23,8 @@ namespace Scripts.Infostructure.Factory
             _assets = assets;
             _staticData = staticData;
         }
-
+        public GameObject CreateHUD() =>
+            InstantiateRegistered("UI/HUD");
         public GameObject CreateSpawner()
         {
             GameObject spawner = InstantiateRegistered("Enemies/EnemySpawner/Spawner");

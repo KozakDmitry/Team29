@@ -48,17 +48,15 @@ namespace Scripts.Infostructure.States
             BindCamera(player);
         }
 
-        private void InitSpawner()
-        {
+        private void InitSpawner() => 
             _gameFactory.CreateSpawner();
-        }
 
         private void BindCamera(GameObject player) =>
             Camera.main.GetComponent<CameraFollow>().Follow(player);
 
-        private void InitHUD(GameObject player)
-        {
-        }
+        private void InitHUD(GameObject player) =>
+            _gameFactory.CreateHUD();
+
         public void Exit()
         {
 
