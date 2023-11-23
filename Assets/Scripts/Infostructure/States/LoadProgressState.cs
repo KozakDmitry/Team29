@@ -25,10 +25,10 @@ namespace Scripts.Infostructure.States
             _stateMachine.Enter<LoadLevelState, string>("Main");
         }
 
-        private void LoadProgressOrCreateNew()
-        {
-            _progressService.Progress = _saveLoadService.LoadProgress() ?? NewProgress();
-        }
+        private void LoadProgressOrCreateNew() =>
+            _progressService.Progress = 
+            _saveLoadService.LoadProgress() 
+            ?? NewProgress();
 
         private PlayerProgress NewProgress()
         {
