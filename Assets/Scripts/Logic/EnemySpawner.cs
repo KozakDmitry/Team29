@@ -32,9 +32,10 @@ namespace Scripts.Logic
         public void Construct(GameObject playerObject)
         {
             player = playerObject.transform;
+            StartSpawning();
         }
         public void StartSpawning()
-        {
+        { 
             StartCoroutine(Spawn());
         }
 
@@ -57,11 +58,11 @@ namespace Scripts.Logic
 
             spawnPosition += randomPosition;
 
-            while (!ValidSpawnPoint(spawnPosition))
-            {
-                randomPosition = new Vector3(Random.Range(-spawnRange, spawnRange), 0, Random.Range(-spawnRange, spawnRange));
-                spawnPosition = player.position + randomPosition;
-            }
+            //while (!ValidSpawnPoint(spawnPosition))
+            //{
+            //    randomPosition = new Vector3(Random.Range(-spawnRange, spawnRange), 0, Random.Range(-spawnRange, spawnRange));
+            //    spawnPosition = player.position + randomPosition;
+            //}
 
             return spawnPosition;
         }

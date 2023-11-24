@@ -47,6 +47,6 @@ MonoBehaviour:
   enemyPrefab: {fileID: 5317683944767580301, guid: ea88e9226fc13094f8255eab971f7ba0, type: 3}
   area: {fileID: 0}
   spawning: 1
-  spawnRange: 0
-  delay: 0
+  spawnRange: 15
+  delay: 3
   MonsterTypeID: 0

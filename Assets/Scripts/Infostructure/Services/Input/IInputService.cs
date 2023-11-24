@@ -1,5 +1,4 @@
-﻿using Scripts.Infostructure.Services;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Scripts.Infostructure.Services.Input
 {

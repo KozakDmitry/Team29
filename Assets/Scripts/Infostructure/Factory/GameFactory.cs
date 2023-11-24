@@ -1,4 +1,6 @@
-﻿using Scripts.Infostructure.AssetManagment;
+﻿using Scripts.Enemies;
+using Scripts.Enemy;
+using Scripts.Infostructure.AssetManagment;
 using Scripts.Infostructure.Services.PersistentProgress;
 using Scripts.Logic;
 using Scripts.StaticData;
@@ -63,9 +65,12 @@ namespace Scripts.Infostructure.Factory
         {
             MonsterStaticData monsterData = _staticData.ForMonster(monsterTypeID);
             GameObject monster = Object.Instantiate(monsterData.Prefab, position, Quaternion.identity);
-            //var health = monster.GetComponent<IHealth>();
-            //health.Current = monsterData.Hp;
-            //health.Max = monsterData.Hp;
+            var health = monster.GetComponent<IHealth>();
+            health.Current = monsterData.Hp;
+            health.Max = monsterData.Hp;
+            monster.GetComponent<AgentMoveToPlayer>().Construct(PlayerGameObject.transform);
+            //monster.GetComp
+            //onent<RotateToPlayer>().Construct(PlayerGameObject.transform);
             monster.GetComponent<NavMeshAgent>().speed = monsterData.MoveSpeed;
             return monster;
         }

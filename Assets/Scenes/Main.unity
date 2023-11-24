@@ -887,6 +887,7 @@ GameObject:
   - component: {fileID: 186107399}
   - component: {fileID: 186107398}
   - component: {fileID: 186107397}
+  - component: {fileID: 186107401}
   m_Layer: 0
   m_Name: Ground floor
   m_TagString: Untagged
@@ -1006,6 +1007,20 @@ Transform:
   - {fileID: 1707938503}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &186107401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186107396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19046c715e4e1b74ca64f9060d4d2491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {x: 0, y: 0, z: 0}
+  size: {x: 0, y: 0, z: 0}
 --- !u!1 &329803567
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,15 +2516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34c582bfcfb0c6c499f51e2564940af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPanel: {fileID: 0}
-  gamePanel: {fileID: 0}
-  gameOverPanel: {fileID: 0}
-  startOverlay: {fileID: 0}
-  tutorial: {fileID: 827563589}
   moveCamera: {fileID: 60997684}
-  transition: {fileID: 0}
-  bestText: {fileID: 0}
-  scoreText: {fileID: 0}
   gameStarted: 0
 --- !u!1 &1646999280
 GameObject:
