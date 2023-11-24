@@ -8,27 +8,16 @@ using UnityEngine.SceneManagement;
 
 public class StartMenuManager : MonoBehaviour
 {
-    public Animator startPanel;
-    public Animator gamePanel;
-    public Animator gameOverPanel;
-    public Animator startOverlay;
-    public Animator tutorial;
-    public Animator moveCamera;
-    public Animator transition;
 
-    public Text bestText;
-    public Text scoreText;
+    public Animator moveCamera;
+
 
     [HideInInspector]
     public bool gameStarted;
 
-    private IGameFactory _gameFactory;
-
-    PlayerMove player;
-
     void Start()
     {
-        _gameFactory = AllServices.Container.Single<IGameFactory>();
+
 
     }
 
@@ -40,10 +29,6 @@ public class StartMenuManager : MonoBehaviour
             {
                 StartGame();
             }
-            else if (!gamePanel.gameObject.activeSelf)
-            {
-                StartCoroutine(RestartGame());
-            }
         }
     }
 
@@ -53,33 +38,9 @@ public class StartMenuManager : MonoBehaviour
 
         moveCamera.SetTrigger("MoveCamera");
 
-        startPanel.SetTrigger("Fade");
-        startOverlay.SetTrigger("Fade");
-
-        tutorial.SetBool("Invisible", false);
-
-        gamePanel.SetBool("Visible", true);
-
+      
         
     }
 
-    public void GameOver()
-    {
-        if (!gamePanel.gameObject.activeSelf)
-            return;
-
-        gamePanel.gameObject.SetActive(false);
-        gameOverPanel.SetTrigger("Game over");
-
-        
-    }
-
-    IEnumerator RestartGame()
-    {
-        transition.SetTrigger("Transition");
-
-        yield return new WaitForSeconds(0.5f);
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+   
 }

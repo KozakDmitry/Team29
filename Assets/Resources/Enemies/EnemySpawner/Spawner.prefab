@@ -41,18 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3324605992645579203}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f04d468baaefb2a40ae882031efc16af, type: 3}
+  m_Script: {fileID: 11500000, guid: f9972c35dfa4d9946b27e25e12142004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  anim: {fileID: 0}
-  spawnEffect: {fileID: 0}
-  ragdoll: {fileID: 0}
-  bloodEffect: {fileID: 0}
-  spawnHeight: 0
-  spawnMoveSpeed: 0
-  jumpAttackDistance: 0
-  walkspeed: 0
-  runspeed: 0
-  normalColor: {r: 0, g: 0, b: 0, a: 0}
-  angryColor: {r: 0, g: 0, b: 0, a: 0}
+  enemyPrefab: {fileID: 5317683944767580301, guid: ea88e9226fc13094f8255eab971f7ba0, type: 3}
+  area: {fileID: 0}
+  spawning: 1
+  spawnRange: 0
+  delay: 0
+  MonsterTypeID: 0

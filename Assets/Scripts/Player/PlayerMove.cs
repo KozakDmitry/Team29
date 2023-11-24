@@ -9,10 +9,8 @@ namespace Scripts.Player
     public class PlayerMove : MonoBehaviour
     {
         public CharacterController characterController;
-        public Animator anim;
         public float movementSpeed;
-        public float gravity;
-        public ParticleSystem movementEffect;
+        public float _rotationSpeed;
 
         private IInputService _inputService;
 
@@ -20,7 +18,7 @@ namespace Scripts.Player
         {
             _inputService = AllServices.Container.Single<IInputService>();
         }
-        void Update()
+        void FixedUpdate()
         {
             Vector3 movementVector = Vector3.zero;
 
@@ -31,13 +29,17 @@ namespace Scripts.Player
                 movementVector.Normalize();
 
                 transform.forward = movementVector;
+
+                
             }
 
             movementVector += Physics.gravity;
 
             characterController.Move(movementVector * (movementSpeed * Time.deltaTime));
-
+        
         }
+
+       
 
     }
 }

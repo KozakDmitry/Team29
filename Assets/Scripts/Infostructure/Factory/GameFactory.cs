@@ -25,6 +25,7 @@ namespace Scripts.Infostructure.Factory
         }
         public GameObject CreateHUD() =>
             InstantiateRegistered("UI/HUD");
+
         public GameObject CreateSpawner()
         {
             GameObject spawner = InstantiateRegistered("Enemies/EnemySpawner/Spawner");

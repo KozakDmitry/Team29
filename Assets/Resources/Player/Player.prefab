@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 0f92ed46637139641a35b5bf7d9ac850, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0f92ed46637139641a35b5bf7d9ac850, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -26,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0f92ed46637139641a35b5bf7d9ac850, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7660445
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0f92ed46637139641a35b5bf7d9ac850, type: 3}
       propertyPath: m_LocalRotation.x
@@ -34,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0f92ed46637139641a35b5bf7d9ac850, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6427876
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0f92ed46637139641a35b5bf7d9ac850, type: 3}
       propertyPath: m_LocalRotation.z
@@ -46,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0f92ed46637139641a35b5bf7d9ac850, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 80
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0f92ed46637139641a35b5bf7d9ac850, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -144,10 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 4474951188021496103}
-  anim: {fileID: 4797872906174280855}
   movementSpeed: 10
-  gravity: 0
-  movementEffect: {fileID: 5332465380815709231, guid: d48ccfb146e3f22448bfb8360aecdba9, type: 3}
+  _rotationSpeed: 500
 --- !u!114 &691649708733337687
 MonoBehaviour:
   m_ObjectHideFlags: 0
