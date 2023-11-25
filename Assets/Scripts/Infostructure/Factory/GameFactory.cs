@@ -69,8 +69,7 @@ namespace Scripts.Infostructure.Factory
             health.Current = monsterData.Hp;
             health.Max = monsterData.Hp;
             monster.GetComponent<AgentMoveToPlayer>().Construct(PlayerGameObject.transform);
-            //monster.GetComp
-            //onent<RotateToPlayer>().Construct(PlayerGameObject.transform);
+            monster.GetComponent<RotateToPlayer>().Construct(PlayerGameObject.transform);
             monster.GetComponent<NavMeshAgent>().speed = monsterData.MoveSpeed;
             return monster;
         }

@@ -13,8 +13,11 @@ namespace Scripts.StaticData
         [Range(1, 30)]
         public float Damage;
 
+        [Range(1, 10)]
+        public float MoveSpeed;
+
         public GameObject Prefab;
 
-        public float MoveSpeed { get; set; }
+     
     }
 }
