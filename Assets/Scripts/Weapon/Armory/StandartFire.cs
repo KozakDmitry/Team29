@@ -10,7 +10,7 @@ namespace Scripts.Weapon.Armory
             set => level = value; }
 
         private Transform HeroTransform;
-
+        private float attackInterval;
         public void LevelUp()
         {
             throw new System.NotImplementedException();
@@ -26,6 +26,11 @@ namespace Scripts.Weapon.Armory
         }
 
         public void Deactivate()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Construct()
         {
             throw new System.NotImplementedException();
         }

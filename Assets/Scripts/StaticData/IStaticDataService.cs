@@ -8,5 +8,6 @@ namespace Scripts.StaticData
 
         void LoadWeapons();
         MonsterStaticData ForMonster(MonsterTypeID typeId);
+        WeaponStaticData ForWeapon(WeaponTypeID typeId);
     }
 }

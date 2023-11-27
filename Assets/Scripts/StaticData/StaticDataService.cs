@@ -9,7 +9,7 @@ namespace Scripts.StaticData
 
         private Dictionary<MonsterTypeID, MonsterStaticData> _monsters;
 
-        private List <WeaponStaticData> _weapons;
+        private Dictionary <WeaponTypeID,WeaponStaticData> _weapons;
 
         public void LoadMonsters()
         {
@@ -21,8 +21,13 @@ namespace Scripts.StaticData
         {
             _weapons = Resources
                 .LoadAll<WeaponStaticData>("StaticData/Weapons")
-                .ToList();
+                .ToDictionary(x => x.WeaponTypeID, x => x);
         }
+
+        public WeaponStaticData ForWeapon(WeaponTypeID typeId) =>
+            _weapons.TryGetValue(typeId, out WeaponStaticData staticData)
+                ? staticData
+                : null;
 
         public MonsterStaticData ForMonster(MonsterTypeID typeId) =>
             _monsters.TryGetValue(typeId, out MonsterStaticData staticData)

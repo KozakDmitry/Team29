@@ -6,7 +6,10 @@ namespace Scripts.StaticData
     [CreateAssetMenu(fileName = "WeaponData", menuName = "StaticData/WeaponData")]
     public class WeaponStaticData : ScriptableObject
     {
+        public WeaponTypeID WeaponTypeID;
+
         public Sprite Sprite;
+
 
         [Range(1,20)]
         public int MaxLevel;
