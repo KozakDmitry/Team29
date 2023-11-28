@@ -8,7 +8,8 @@ namespace Scripts.Weapon
 {
     public class WeaponManager : MonoBehaviour
     {
-        private Dictionary<IWeapon, int> currentWeapon = new Dictionary<IWeapon, int>();
+        [SerializeField]
+        private List<IWeapon> currentWeapon = new List<IWeapon>();
         private IGameFactory _gameFactory;
 
 
@@ -19,7 +20,7 @@ namespace Scripts.Weapon
 
         public void ActivateAll()
         {
-            foreach(IWeapon weapon in currentWeapon.Keys)
+            foreach(IWeapon weapon in currentWeapon)
             {
                 weapon.Activate();
             }
@@ -28,7 +29,7 @@ namespace Scripts.Weapon
         public void DeactivateAll()
         {
 
-            foreach (IWeapon weapon in currentWeapon.Keys)
+            foreach (IWeapon weapon in currentWeapon)
             {
                 weapon.Deactivate();
             }

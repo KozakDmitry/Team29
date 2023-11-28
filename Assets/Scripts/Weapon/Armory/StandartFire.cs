@@ -11,6 +11,7 @@ namespace Scripts.Weapon.Armory
 
         private Transform HeroTransform;
         private float attackInterval;
+        private GameObject bulletPrefab;
         public void LevelUp()
         {
             throw new System.NotImplementedException();
@@ -22,7 +23,12 @@ namespace Scripts.Weapon.Armory
 
         IEnumerator Fire()
         {
-            yield return null;
+            Vector3 firePosition = HeroTransform.position + transform.forward;
+            while(true)
+            {
+                yield return new WaitForSeconds(attackInterval);
+                Instantiate(bulletPrefab);
+            }
         }
 
         public void Deactivate()
