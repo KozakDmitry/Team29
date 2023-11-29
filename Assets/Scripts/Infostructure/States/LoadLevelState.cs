@@ -31,7 +31,7 @@ namespace Scripts.Infostructure.States
         {
             InitWorld();
             InformProgressReader();
-            _gameStateMachine.Enter<WaitForGameStartState>();
+            _gameStateMachine.Enter<GameLoopState>();
         }
         private void InformProgressReader()
         {

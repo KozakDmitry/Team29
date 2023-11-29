@@ -7,7 +7,6 @@ public class CameraFollow : MonoBehaviour {
     public float height;
 	public float smoothness;
 
-	[SerializeField]
 	private Transform camTarget;
 	
 	Vector3 velocity;

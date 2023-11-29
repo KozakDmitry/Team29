@@ -9,6 +9,7 @@ namespace Scripts.Infostructure.States
 {
     public class LoadProgressState : IState
     {
+        private const string Scene = "City";
         private readonly GameStateMachine _stateMachine;
         private readonly IPersistentProgressService _progressService;
         private ISaveLoadService _saveLoadService;
@@ -22,7 +23,7 @@ namespace Scripts.Infostructure.States
         public void Enter()
         {
             LoadProgressOrCreateNew();
-            _stateMachine.Enter<LoadLevelState, string>("Main");
+            _stateMachine.Enter<LoadLevelState, string>(Scene);
         }
 
         private void LoadProgressOrCreateNew() =>
