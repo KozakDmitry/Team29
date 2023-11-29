@@ -10695,16 +10695,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 7f30b274751523546bde280ab3041b6e, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f30b274751523546bde280ab3041b6e, type: 3}
---- !u!4 &673874198 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7f30b274751523546bde280ab3041b6e, type: 3}
-  m_PrefabInstance: {fileID: 673874197}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &680070661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19400,7 +19399,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 673874198}
+  - {fileID: 543450653026412286}
   - {fileID: 1703736914}
   - {fileID: 1160067450}
   - {fileID: 1754186582}
@@ -32213,6 +32212,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fc974553c26038946a17a19325d17727, type: 3}
   m_PrefabInstance: {fileID: 2144993741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &543450653026412286 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7f30b274751523546bde280ab3041b6e, type: 3}
+  m_PrefabInstance: {fileID: 673874197}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
