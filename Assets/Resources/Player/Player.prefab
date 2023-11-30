@@ -307,6 +307,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponList: {fileID: 2776828313235543789}
+  currentWeapon:
+  - {fileID: 0}
 --- !u!95 &4797872906174280855 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: 0f92ed46637139641a35b5bf7d9ac850, type: 3}

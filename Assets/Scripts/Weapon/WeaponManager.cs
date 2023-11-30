@@ -11,7 +11,8 @@ namespace Scripts.Weapon
     {
         [SerializeField]
         private GameObject WeaponList;
-        private List<IWeapon> currentWeapon = new List<IWeapon>();
+        [SerializeField]
+        public List<MonoBehaviour> currentWeapon = new List<MonoBehaviour>();
 
         private IGameFactory _gameFactory;
 
