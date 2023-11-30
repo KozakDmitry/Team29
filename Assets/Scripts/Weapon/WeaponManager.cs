@@ -14,12 +14,10 @@ namespace Scripts.Weapon
         private List<IWeapon> currentWeapon = new List<IWeapon>();
 
         private IGameFactory _gameFactory;
-        private IStaticDataService _staticData;
 
         private void Start()
         {
             _gameFactory = AllServices.Container.Single<IGameFactory>();
-            _staticData = AllServices.Container.Single<IStaticDataService>();
         }
 
         public void AddWeapon(WeaponTypeID weaponTypeID)

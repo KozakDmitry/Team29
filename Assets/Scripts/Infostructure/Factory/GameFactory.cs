@@ -4,6 +4,8 @@ using Scripts.Infostructure.AssetManagment;
 using Scripts.Infostructure.Services.PersistentProgress;
 using Scripts.Logic;
 using Scripts.StaticData;
+using Scripts.Weapon;
+using Scripts.Weapon.Armory;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -77,6 +79,7 @@ namespace Scripts.Infostructure.Factory
         public GameObject AddWeapon(WeaponTypeID weaponTypeID)
         {
             var WeaponData = _staticData.ForWeapon(weaponTypeID);
+            Object.Instantiate(new GameObject().AddComponent<StandartFire>());
             return InstantiateRegistered($"Weapon/{weaponTypeID}");
         }
 
