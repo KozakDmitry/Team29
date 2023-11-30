@@ -15,6 +15,7 @@ namespace Scripts.Infostructure.Factory
         public GameObject CreateSpawner();
         public GameObject CreateMonster(MonsterTypeID monsterTypeID, Vector3 position);
 
+        public GameObject AddWeapon(WeaponTypeID weaponTypeID);
         public GameObject CreateHUD();
         void CleanUp();
     }

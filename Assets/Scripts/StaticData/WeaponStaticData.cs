@@ -20,6 +20,5 @@ namespace Scripts.StaticData
         [Range(1, 20)]
         public int DamagePerLevel;
 
-        public IWeapon WeaponScript;
     }
 }

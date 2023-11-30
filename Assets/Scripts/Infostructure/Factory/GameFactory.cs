@@ -74,7 +74,11 @@ namespace Scripts.Infostructure.Factory
             return monster;
         }
 
-
+        public GameObject AddWeapon(WeaponTypeID weaponTypeID)
+        {
+            var WeaponData = _staticData.ForWeapon(weaponTypeID);
+            return InstantiateRegistered($"Weapon/{weaponTypeID}");
+        }
 
         public void CleanUp()
         {
@@ -94,5 +98,6 @@ namespace Scripts.Infostructure.Factory
 
         }
 
+       
     }
 }
