@@ -11,7 +11,7 @@ namespace Scripts.Logic
 
 		public float force;
 		public float lifetime;
-
+		public float damage;
 		[HideInInspector]
 		public PlayerMove player;
 
@@ -29,7 +29,7 @@ namespace Scripts.Logic
 		{
 			if (other.gameObject.CompareTag("Enemy"))
 			{
-				other.gameObject.GetComponent<EnemyHealth>().TakeDamage(5f);
+				other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
 			}
 
 

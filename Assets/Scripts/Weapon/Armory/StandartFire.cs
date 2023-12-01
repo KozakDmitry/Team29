@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Scripts.Logic;
+using System.Collections;
 using UnityEngine;
 
 namespace Scripts.Weapon.Armory
@@ -33,9 +34,15 @@ namespace Scripts.Weapon.Armory
         {
             _level++;
             _damage += _damagePerLevel;
+            UpdateBulletDmg();
+        }
+        private void UpdateBulletDmg()
+        {
+            _bulletPrefab.GetComponent<Bullet>().damage = _damage;
         }
         public void Activate()
         {
+            UpdateBulletDmg();
             StartCoroutine(Fire());
         }
 
