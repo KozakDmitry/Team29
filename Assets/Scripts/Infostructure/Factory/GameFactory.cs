@@ -78,9 +78,15 @@ namespace Scripts.Infostructure.Factory
 
         public GameObject AddWeapon(WeaponTypeID weaponTypeID)
         {
-            var WeaponData = _staticData.ForWeapon(weaponTypeID);
-            Object.Instantiate(new GameObject().AddComponent<StandartFire>());
-            return InstantiateRegistered($"Weapon/{weaponTypeID}");
+            WeaponStaticData WeaponData = _staticData.ForWeapon(weaponTypeID);
+            GameObject weapon = InstantiateRegistered($"Weapon/Armory/{weaponTypeID}");
+            IWeapon weaponStats = weapon.GetComponent<IWeapon>();
+            weaponStats.name = WeaponData.name;
+            weaponStats.damage = WeaponData.StartDamage;
+            weaponStats.damagePerLevel = WeaponData.DamagePerLevel;
+            weaponStats.heroTransform = PlayerGameObject.transform;
+            weaponStats.attackPrefab = WeaponData.attackObject;
+            return weapon;
         }
 
         public void CleanUp()

@@ -9,7 +9,7 @@ namespace Scripts.StaticData
 
         private Dictionary<MonsterTypeID, MonsterStaticData> _monsters;
 
-        private Dictionary <WeaponTypeID,WeaponStaticData> _weapons;
+        private Dictionary<WeaponTypeID, WeaponStaticData> _weapons;
 
         public void LoadMonsters()
         {

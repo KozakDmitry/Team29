@@ -46,6 +46,7 @@ namespace Scripts.Infostructure.States
         {
             IStaticDataService staticData = new StaticDataService();
             staticData.LoadMonsters();
+            staticData.LoadWeapons();
             _services.RegisterSingle(staticData);
         }
 

@@ -12,7 +12,7 @@ namespace Scripts.Weapon
         [SerializeField]
         private GameObject WeaponList;
         [SerializeField]
-        public List<MonoBehaviour> currentWeapon = new List<MonoBehaviour>();
+        public List<IWeapon> currentWeapons = new List<IWeapon>();
 
         private IGameFactory _gameFactory;
 
@@ -23,12 +23,15 @@ namespace Scripts.Weapon
 
         public void AddWeapon(WeaponTypeID weaponTypeID)
         {
-            _gameFactory.AddWeapon(weaponTypeID);
+            GameObject weapon = _gameFactory.AddWeapon(weaponTypeID);
+            weapon.transform.parent = WeaponList.transform;
+            currentWeapons.Add(weapon.GetComponent<IWeapon>());
+            weapon.GetComponent<IWeapon>().Activate();
         }
 
         public void ActivateAll()
         {
-            foreach(IWeapon weapon in currentWeapon)
+            foreach(IWeapon weapon in currentWeapons)
             {
                 weapon.Activate();
             }
@@ -37,7 +40,7 @@ namespace Scripts.Weapon
         public void DeactivateAll()
         {
 
-            foreach (IWeapon weapon in currentWeapon)
+            foreach (IWeapon weapon in currentWeapons)
             {
                 weapon.Deactivate();
             }

@@ -17,3 +17,4 @@ MonoBehaviour:
   MaxLevel: 5
   StartDamage: 10
   DamagePerLevel: 1
+  attackObject: {fileID: 5734495640131983555, guid: e0c8e688f67efc04db5f1e0840474657, type: 3}

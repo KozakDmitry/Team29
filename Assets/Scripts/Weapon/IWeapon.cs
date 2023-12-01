@@ -1,4 +1,5 @@
 ﻿using Scripts.StaticData;
+using UnityEngine;
 
 namespace Scripts.Weapon
 {
@@ -8,6 +9,10 @@ namespace Scripts.Weapon
         public string name { get; set; }
         public int level { get; set; }
 
+        public float damage { get; set; }
+        public Transform heroTransform { get; set; }
+        public GameObject attackPrefab { get; set; }
+        public float damagePerLevel { get; set; }
         public void LevelUp();
         public void Activate();
         

@@ -1,4 +1,5 @@
-﻿using Scripts.Player;
+﻿using Scripts.Enemy;
+using Scripts.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,12 +27,13 @@ namespace Scripts.Logic
 
 		void OnTriggerEnter(Collider other)
 		{
-			if (!other.gameObject.CompareTag("Enemy"))
-				return;
+			if (other.gameObject.CompareTag("Enemy"))
+			{
+				other.gameObject.GetComponent<EnemyHealth>().TakeDamage(5f);
+			}
 
-			//other.gameObject.GetComponent<Enemy>().Hit();
-			//player.DisableBullet(gameObject);
-		}
+
+        }
 
 		IEnumerator DestroySelf()
 		{

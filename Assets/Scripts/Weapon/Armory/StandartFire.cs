@@ -5,16 +5,34 @@ namespace Scripts.Weapon.Armory
 {
     public class StandartFire : MonoBehaviour, IWeapon
     {
-        public int level {
-            get => level;
-            set => level = value; }
+        private int _level;
+        private float _damage;
+        private float _damagePerLevel;
 
-        private Transform HeroTransform;
-        private float attackInterval;
-        private GameObject bulletPrefab;
+        private Transform _heroTransform;
+        private float _attackInterval=0.4f;
+        private GameObject _bulletPrefab;
+        private Vector3 _firePosition;
+        public int level {
+            get => _level;
+            set => _level = value; }
+        public float damage { 
+            get => _damage; 
+            set => _damage = value; }
+        public float damagePerLevel {  
+            get => _damagePerLevel;
+            set => _damagePerLevel = value; }
+        public Transform heroTransform {
+            get => _heroTransform;
+            set => _heroTransform = value; }
+        public GameObject attackPrefab {
+            get => _bulletPrefab;
+            set => _bulletPrefab = value; }
+
         public void LevelUp()
         {
-            throw new System.NotImplementedException();
+            _level++;
+            _damage += _damagePerLevel;
         }
         public void Activate()
         {
@@ -23,11 +41,11 @@ namespace Scripts.Weapon.Armory
 
         IEnumerator Fire()
         {
-            Vector3 firePosition = HeroTransform.position + transform.forward;
             while(true)
             {
-                yield return new WaitForSeconds(attackInterval);
-                Instantiate(bulletPrefab);
+                yield return new WaitForSeconds(_attackInterval);
+                _firePosition = _heroTransform.position + transform.forward;          
+                Instantiate(_bulletPrefab,new Vector3(_firePosition.x,1,_firePosition.z),heroTransform.rotation);
             }
         }
 
