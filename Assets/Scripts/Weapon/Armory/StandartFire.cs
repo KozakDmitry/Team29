@@ -51,8 +51,8 @@ namespace Scripts.Weapon.Armory
             while(true)
             {
                 yield return new WaitForSeconds(_attackInterval);
-                _firePosition = _heroTransform.position + transform.forward;          
-                Instantiate(_bulletPrefab,new Vector3(_firePosition.x,1,_firePosition.z),heroTransform.rotation);
+                _firePosition = _heroTransform.position;          
+                Instantiate(_bulletPrefab,new Vector3(_firePosition.x,1.25f,_firePosition.z),heroTransform.rotation);
             }
         }
 

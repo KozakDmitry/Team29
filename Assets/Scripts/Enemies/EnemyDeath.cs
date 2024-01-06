@@ -39,7 +39,7 @@ namespace Scripts.Enemy
 
         private IEnumerator DestroyTimer()
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(0f);
             Destroy(gameObject);
         }
     }
