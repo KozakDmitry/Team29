@@ -16,4 +16,4 @@ MonoBehaviour:
   Hp: 15
   Damage: 8.5
   MoveSpeed: 2
-  Prefab: {fileID: 1763708642011272156, guid: 6d444ad2b56e086499bad9a1b6441b0d, type: 3}
+  Prefab: {fileID: 5317683944767580301, guid: ea88e9226fc13094f8255eab971f7ba0, type: 3}
