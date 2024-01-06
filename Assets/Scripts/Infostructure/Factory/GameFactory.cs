@@ -70,6 +70,7 @@ namespace Scripts.Infostructure.Factory
             var health = monster.GetComponent<IHealth>();
             health.Current = monsterData.Hp;
             health.Max = monsterData.Hp;
+            monster.GetComponent<Attack>().Construct(PlayerGameObject.transform);
             monster.GetComponent<AgentMoveToPlayer>().Construct(PlayerGameObject.transform);
             monster.GetComponent<RotateToPlayer>().Construct(PlayerGameObject.transform);
             monster.GetComponent<NavMeshAgent>().speed = monsterData.MoveSpeed;

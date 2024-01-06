@@ -46,7 +46,6 @@ namespace Scripts.Enemy
             
             if (Hit(out Collider hit))
             {
-               
                 hit.transform.GetComponent<IHealth>().TakeDamage(Damage);
                
             }
@@ -73,7 +72,7 @@ namespace Scripts.Enemy
         public void DisableAttack() =>
             _attackIsActive = false;
         private bool CanAttack() =>
-            CooldownIsUp() && !_isAttacking && _attackIsActive;
+            CooldownIsUp() && _attackIsActive;
 
 
         private bool CooldownIsUp() =>
@@ -84,8 +83,9 @@ namespace Scripts.Enemy
 
         private void StartAttack()
         {
-            transform.LookAt(_heroTransform);
-            animator.PlayAttack();
+            _attackCooldown = AttackCooldown;
+            //transform.LookAt(_heroTransform);
+            //animator.PlayAttack();
             _isAttacking = true;
             OnAttack();
         }

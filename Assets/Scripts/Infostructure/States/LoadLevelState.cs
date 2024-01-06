@@ -1,5 +1,7 @@
 ﻿using Scripts.Infostructure.Factory;
 using Scripts.Infostructure.Services.PersistentProgress;
+using Scripts.Logic;
+using Scripts.UI;
 using System;
 using UnityEngine;
 
@@ -54,8 +56,11 @@ namespace Scripts.Infostructure.States
         private void BindCamera(GameObject player) =>
             Camera.main.GetComponent<CameraFollow>().Follow(player);
 
-        private void InitHUD(GameObject player) =>
-            _gameFactory.CreateHUD();
+        private void InitHUD(GameObject player)
+        {
+            GameObject hud = _gameFactory.CreateHUD();
+            hud.GetComponent<UIController>().Construct(player.GetComponent<IHealth>());
+        }
 
         public void Exit()
         {
