@@ -20,9 +20,7 @@ namespace Scripts.Infostructure.States
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services),
                 [typeof(LoadProgressState)] = new LoadProgressState(this,services.Single<IPersistentProgressService>(), services.Single<ISaveLoadService>()),
                 [typeof(LoadLevelState)] = new LoadLevelState(this,sceneLoader,services.Single<IGameFactory>(), services.Single<IPersistentProgressService>()),
-                [typeof(WaitForGameStartState)] = new WaitForGameStartState(),
-                [typeof(GameLoopState)] = new GameLoopState(),
-                
+                [typeof(GameLoopState)] = new GameLoopState(this, services.Single<IGameFactory>()),         
             };
 
 

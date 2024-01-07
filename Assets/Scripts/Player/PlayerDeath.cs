@@ -5,13 +5,14 @@ using UnityEngine;
 namespace Scripts.Player 
 { 
     [RequireComponent(typeof(PlayerHealth))]
-    public class HeroDeath : MonoBehaviour
+    public class PlayerDeath : MonoBehaviour
     {
         public PlayerHealth Health;
 
         public PlayerMove Move;
         public PlayerAnimator Animator;
 
+        public event Action Dying;
         private bool _isDead;
 
         private void Start()
@@ -33,9 +34,10 @@ namespace Scripts.Player
         private void Die()
         {
             _isDead = true;
+            
             Move.enabled = false;
             Animator.PlayDeath();
-   
+            Dying?.Invoke();
         }
     }
 }

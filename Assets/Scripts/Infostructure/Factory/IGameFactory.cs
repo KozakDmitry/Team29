@@ -17,6 +17,7 @@ namespace Scripts.Infostructure.Factory
 
         public GameObject AddWeapon(WeaponTypeID weaponTypeID);
         public GameObject CreateHUD();
+        public GameObject ReturnPlayer();
         void CleanUp();
     }
 }

@@ -36,7 +36,10 @@ namespace Scripts.Infostructure.Factory
             spawner.GetComponent<EnemySpawner>().Construct(PlayerGameObject);
             return spawner; 
         }
-
+        public GameObject ReturnPlayer()
+        {
+            return PlayerGameObject;
+        }
         public GameObject CreatePlayer(GameObject startPoint)
         {
             PlayerGameObject = InstantiateRegistered("Player/Player", startPoint.transform.position);
