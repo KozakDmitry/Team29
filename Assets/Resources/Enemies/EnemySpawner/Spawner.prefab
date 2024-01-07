@@ -48,5 +48,5 @@ MonoBehaviour:
   area: {fileID: 0}
   spawning: 1
   spawnRange: 15
-  delay: 3
+  delay: 2
   MonsterTypeID: 0
