@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Scripts.UI.Elements
+namespace Scripts.UI.Logic
 {
     public class LookAtCamera : MonoBehaviour
     {

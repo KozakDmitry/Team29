@@ -1,7 +1,7 @@
 ﻿using Scripts.Logic;
 using UnityEngine;
 
-namespace Scripts.UI
+namespace Scripts.UI.Logic
 {
     public class UIController : MonoBehaviour
     {

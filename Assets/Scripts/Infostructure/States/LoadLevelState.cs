@@ -1,9 +1,7 @@
 ﻿using Scripts.Infostructure.Factory;
 using Scripts.Infostructure.Services.PersistentProgress;
 using Scripts.Logic;
-using Scripts.Player;
-using Scripts.UI;
-using System;
+using Scripts.UI.Logic;
 using UnityEngine;
 
 namespace Scripts.Infostructure.States
