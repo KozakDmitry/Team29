@@ -59,7 +59,7 @@ namespace Scripts.Infostructure.States
         private void InitHUD(GameObject player)
         {
             GameObject hud = _gameFactory.CreateHUD();
-            hud.GetComponent<UIController>().Construct(player.GetComponent<IHealth>());
+            hud.GetComponent<ActorUI>().Construct(player.GetComponent<IHealth>());
         }
 
         public void Exit()

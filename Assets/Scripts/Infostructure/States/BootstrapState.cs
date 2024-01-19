@@ -1,6 +1,7 @@
 ﻿using Scripts.Infostructure.AssetManagment;
 using Scripts.Infostructure.Factory;
 using Scripts.Infostructure.Services;
+using Scripts.Infostructure.Services.DifficultyDirector;
 using Scripts.Infostructure.Services.Input;
 using Scripts.Infostructure.Services.PersistentProgress;
 using Scripts.Infostructure.Services.SaveLoad;
@@ -38,6 +39,7 @@ namespace Scripts.Infostructure.States
             _services.RegisterSingle<IInputService>(InputService());
             _services.RegisterSingle<IAssets>(new AssetManager());
             _services.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
+            _services.RegisterSingle<IDifficultyDirectorService>(new DifficultyDirectorService());
             _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssets>(),_services.Single<IStaticDataService>()));
             _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(), _services.Single<IGameFactory>()));
         }

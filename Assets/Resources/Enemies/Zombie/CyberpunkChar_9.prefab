@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 2299880222980287375}
   - component: {fileID: 7443601595173140481}
   - component: {fileID: 5257905333499456585}
-  - component: {fileID: 1256520823263030871}
+  - component: {fileID: 4531937557365474327}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -703,7 +703,7 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 1
---- !u!114 &1256520823263030871
+--- !u!114 &4531937557365474327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -712,7 +712,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1439493058662009135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cba8cf47ba3dca5499b94af76ef4d080, type: 3}
+  m_Script: {fileID: 11500000, guid: e9b8cdd3fbfaad34fb642fb1cca2290a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1526620118852348531
@@ -934,7 +934,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1763708642011272156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ba041e8039f5194e9632c5486374408, type: 3}
+  m_Script: {fileID: 11500000, guid: 8135e9fb0f27a0340a41a4bdfffe7a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Hpbar: {fileID: 3028331786902368623}
@@ -3174,7 +3174,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9029925878818253305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a800c3365e9e37d439b803ce38e4df2c, type: 3}
+  m_Script: {fileID: 11500000, guid: b65a1e87a85aa1545bab0bc0ec342cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ImageCurrent: {fileID: 7377000808337358157}
