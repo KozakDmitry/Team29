@@ -11,12 +11,15 @@ namespace Scripts.UI.Logic
         public TextMeshProUGUI surviveTime;
         
 
-        private DifficultyDirectorService _directorService;
+        private IDifficultyDirectorService _directorService;
         private float startTime;
 
-        public void Construct(DifficultyDirectorService directorService)
+
+        public void Construct(IDifficultyDirectorService directorService)
         {
             _directorService = directorService;
+            
+            
         }
         private void Start()
         {
@@ -25,9 +28,17 @@ namespace Scripts.UI.Logic
 
         private void Update()
         {
-            TimeSpan timeSpan = TimeSpan.FromSeconds(Time.time - startTime);
-            surviveTime.text = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds); ;
+            UpdateTimer();
         }
 
+        private void UpdateTimer()
+        {
+            TimeSpan timeSpan = TimeSpan.FromSeconds(Time.time - startTime);
+            if (timeSpan.TotalMinutes > _directorService.DifficultyUpdateTimer)
+            {
+                _directorService.UpdateDifficult();
+            }
+            surviveTime.text = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
+        }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using Scripts.Enemies;
 using Scripts.Enemy;
 using Scripts.Infostructure.AssetManagment;
+using Scripts.Infostructure.Services.DifficultyDirector;
 using Scripts.Infostructure.Services.PersistentProgress;
 using Scripts.Logic;
 using Scripts.StaticData;
+using Scripts.UI.Logic;
 using Scripts.Weapon;
 using Scripts.Weapon.Armory;
 using System.Collections;
@@ -17,6 +19,7 @@ namespace Scripts.Infostructure.Factory
     {
         private readonly IAssets _assets;
         private readonly IStaticDataService _staticData;
+        private readonly IDifficultyDirectorService _difficultyService;
 
         public List<ISavedProgressReader> ProgressReaders { get; } = new List<ISavedProgressReader>();
         public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
@@ -27,13 +30,17 @@ namespace Scripts.Infostructure.Factory
             _assets = assets;
             _staticData = staticData;
         }
-        public GameObject CreateHUD() =>
-            InstantiateRegistered("UI/HUD");
+        public GameObject CreateHUD()
+        {
+            GameObject hud = InstantiateRegistered("UI/HUD");
+            hud.GetComponentInChildren<SurviveTimer>().Construct(_difficultyService);
+            return hud;
+        }
 
         public GameObject CreateSpawner()
         {
             GameObject spawner = InstantiateRegistered("Enemies/EnemySpawner/Spawner");
-            spawner.GetComponent<EnemySpawner>().Construct(PlayerGameObject);
+            spawner.GetComponent<EnemySpawner>().Construct();
             return spawner; 
         }
         public GameObject ReturnPlayer()
