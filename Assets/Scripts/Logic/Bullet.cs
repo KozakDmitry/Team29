@@ -30,7 +30,7 @@ namespace Scripts.Logic
 			if (other.gameObject.CompareTag("Enemy"))
 			{
 				other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
-				DestroySelf();
+				Destroy(this.gameObject);
 			}
 
 
