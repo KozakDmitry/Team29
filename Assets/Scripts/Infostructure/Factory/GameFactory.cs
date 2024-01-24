@@ -25,10 +25,11 @@ namespace Scripts.Infostructure.Factory
         public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
 
         private GameObject PlayerGameObject { get; set; }
-        public GameFactory(IAssets assets, IStaticDataService staticData)
+        public GameFactory(IAssets assets, IStaticDataService staticData, IDifficultyDirectorService directorService)
         {
             _assets = assets;
             _staticData = staticData;
+            _difficultyService = directorService;
         }
         public GameObject CreateHUD()
         {

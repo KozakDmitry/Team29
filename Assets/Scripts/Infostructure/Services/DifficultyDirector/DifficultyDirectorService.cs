@@ -9,9 +9,10 @@ namespace Scripts.Infostructure.Services.DifficultyDirector
 
         public int DifficultyUpdateTimer 
         { 
-            private set => DifficultyUpdateTimer = value; 
-            get => DifficultyUpdateTimer * DifficultStacks; 
+            private set => _diffUpdateTimer = value; 
+            get => _diffUpdateTimer * DifficultStacks; 
         }
+        private int _diffUpdateTimer;
         public int Difficulty { private set; get; }
         public event Action <int> DifficultyChanged;
         private int DifficultStacks;
@@ -19,8 +20,8 @@ namespace Scripts.Infostructure.Services.DifficultyDirector
         public DifficultyDirectorService()
         {
             Difficulty = 0;
-            DifficultyUpdateTimer = 3;
-            DifficultStacks++;
+            _diffUpdateTimer = 3;
+            DifficultStacks=0;
         }
         public void UpdateDifficult()
         {

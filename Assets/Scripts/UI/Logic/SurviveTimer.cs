@@ -13,12 +13,11 @@ namespace Scripts.UI.Logic
 
         private IDifficultyDirectorService _directorService;
         private float startTime;
-
+        private TimeSpan timeSpan;
 
         public void Construct(IDifficultyDirectorService directorService)
         {
             _directorService = directorService;
-            
             
         }
         private void Start()
@@ -33,12 +32,17 @@ namespace Scripts.UI.Logic
 
         private void UpdateTimer()
         {
-            TimeSpan timeSpan = TimeSpan.FromSeconds(Time.time - startTime);
-            if (timeSpan.TotalMinutes > _directorService.DifficultyUpdateTimer)
+            timeSpan = TimeSpan.FromSeconds(Time.time - startTime);
+            CheckUpdateDifficulty();
+            surviveTime.text = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
+        }
+
+        private void CheckUpdateDifficulty()
+        {
+            if (timeSpan.TotalMinutes > (double)_directorService.DifficultyUpdateTimer)
             {
                 _directorService.UpdateDifficult();
             }
-            surviveTime.text = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
         }
     }
 }

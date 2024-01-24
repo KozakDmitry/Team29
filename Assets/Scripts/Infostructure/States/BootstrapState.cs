@@ -40,7 +40,7 @@ namespace Scripts.Infostructure.States
             _services.RegisterSingle<IAssets>(new AssetManager());
             _services.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
             _services.RegisterSingle<IDifficultyDirectorService>(new DifficultyDirectorService());
-            _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssets>(),_services.Single<IStaticDataService>()));
+            _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssets>(),_services.Single<IStaticDataService>(), _services.Single<IDifficultyDirectorService>()));
             _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(), _services.Single<IGameFactory>()));
         }
 
