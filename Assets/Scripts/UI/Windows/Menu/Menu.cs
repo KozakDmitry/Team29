@@ -18,5 +18,7 @@ namespace Scripts.UI.Windows.Menu
             base.CleanUp();
 
         }
+
+        
     }
 }

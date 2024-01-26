@@ -6,6 +6,8 @@ using Scripts.Infostructure.Services.Input;
 using Scripts.Infostructure.Services.PersistentProgress;
 using Scripts.Infostructure.Services.SaveLoad;
 using Scripts.StaticData;
+using Scripts.UI.Services;
+using Scripts.UI.Services.Windows;
 using System;
 using UnityEngine;
 
@@ -38,6 +40,8 @@ namespace Scripts.Infostructure.States
             RegisterStaticData();
             _services.RegisterSingle<IInputService>(InputService());
             _services.RegisterSingle<IAssets>(new AssetManager());
+            _services.RegisterSingle<IUIFactory>(new UIFactory(_services.Single<IAssets>()));
+            _services.RegisterSingle<IWindowService>(new WindowService(_services.Single<IUIFactory>()));
             _services.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
             _services.RegisterSingle<IDifficultyDirectorService>(new DifficultyDirectorService());
             _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssets>(),_services.Single<IStaticDataService>(), _services.Single<IDifficultyDirectorService>()));
