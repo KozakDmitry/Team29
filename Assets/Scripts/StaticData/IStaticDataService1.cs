@@ -1,17 +1,15 @@
-﻿using Scripts.Infostructure.Services;
-using Scripts.StaticData.Windows;
+﻿using Scripts.StaticData.Windows;
 using Scripts.UI.Services.Windows;
 
 namespace Scripts.StaticData
 {
-    public interface IStaticDataService : IService
+    public interface IStaticDataService1
     {
-        void LoadMonsters();
-
-        void LoadWeapons();
         MonsterStaticData ForMonster(MonsterTypeID typeId);
         WeaponStaticData ForWeapon(WeaponTypeID typeId);
-        void LoadWindows();
         WindowConfig ForWindow(WindowsID windowId);
+        void LoadMonsters();
+        void LoadWeapons();
+        void LoadWindows();
     }
 }

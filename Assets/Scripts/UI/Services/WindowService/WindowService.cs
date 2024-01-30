@@ -1,5 +1,7 @@
 ﻿
 
+using Unity.VisualScripting;
+
 namespace Scripts.UI.Services.Windows
 {
     public class WindowService : IWindowService
@@ -12,6 +14,13 @@ namespace Scripts.UI.Services.Windows
         }
         public void Open(WindowsID windowId)
         {
+            //windowId switch
+            //{
+            //    WindowsID.Unknown => ,
+            //    WindowsID.StartMenu => _UIFactory.CreateStartMenu(),
+            //    WindowsID.Shop => _UIFactory.CreateShop(),
+            //    WindowsID.PauseMenu => _UIFactory.CreatePauseMenu(),
+            //};
             switch (windowId)
             {
                 case WindowsID.Unknown:

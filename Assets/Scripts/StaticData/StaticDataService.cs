@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Scripts.StaticData.Windows;
+using Scripts.UI.Services.Windows;
+using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 namespace Scripts.StaticData
@@ -10,6 +13,7 @@ namespace Scripts.StaticData
         private Dictionary<MonsterTypeID, MonsterStaticData> _monsters;
 
         private Dictionary<WeaponTypeID, WeaponStaticData> _weapons;
+        private Dictionary<WindowsID, WindowConfig> _windowConfigs;
 
         public void LoadMonsters()
         {
@@ -24,6 +28,14 @@ namespace Scripts.StaticData
                 .ToDictionary(x => x.WeaponTypeID, x => x);
         }
 
+        public void LoadWindows()
+        {
+            _windowConfigs = Resources
+               .Load<WindowStaticData>("StaticData/UI/WindowStaticData")
+               .Configs
+               .ToDictionary(x => x.windowsID, x => x);
+        }
+
         public WeaponStaticData ForWeapon(WeaponTypeID typeId) =>
             _weapons.TryGetValue(typeId, out WeaponStaticData staticData)
                 ? staticData
@@ -33,6 +45,9 @@ namespace Scripts.StaticData
             _monsters.TryGetValue(typeId, out MonsterStaticData staticData)
                 ? staticData
                 : null;
-
+        public WindowConfig ForWindow(WindowsID windowId) =>
+          _windowConfigs.TryGetValue(windowId, out WindowConfig staticData)
+           ? staticData
+           : null;
     }
 }
