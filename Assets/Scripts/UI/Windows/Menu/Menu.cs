@@ -7,10 +7,9 @@ namespace Scripts.UI.Windows.Menu
 {
     public class Menu : WindowBase
     {
-        public Button ExitButton;
         protected override void Initialize()
         {
-            ExitButton.onClick.AddListener(()=> Application.Quit());   
+           base.Initialize();
         }
 
         protected override void CleanUp()
