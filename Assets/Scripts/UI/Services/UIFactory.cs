@@ -3,6 +3,7 @@ using Scripts.Infostructure.AssetManagment;
 using Scripts.Infostructure.Services.PersistentProgress;
 using Scripts.StaticData;
 using Scripts.StaticData.Windows;
+using Scripts.UI.Logic;
 using Scripts.UI.Services.Windows;
 using Scripts.UI.Windows.Menu;
 using Scripts.UI.Windows.Shop;
@@ -13,11 +14,12 @@ namespace Scripts.UI.Services
 {
     public class UIFactory : IUIFactory
     {
-        private const string UIRootPath = "UIRoot";
+        private const string UIRootPath = "UI/UIRoot";
 
         private readonly IAssets _assets;
         private readonly IStaticDataService _staticData;
         private readonly IPersistentProgressService _progressService;
+        //private readonly IWindowService _windowService;
         private Transform UIRoot;
 
 

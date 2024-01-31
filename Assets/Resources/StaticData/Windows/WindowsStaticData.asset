@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4ff225eb411f86459263d10a6048757, type: 3}
-  m_Name: PauseMenu
+  m_Name: WindowsStaticData
   m_EditorClassIdentifier: 
   Configs:
   - windowsID: 3
     windowPrefab: {fileID: 8933754233372438240, guid: e5465826e59e56240b34871737235609, type: 3}
+  - windowsID: 2
+    windowPrefab: {fileID: 3529210787892948822, guid: cb89363b7278ebb44b5918e6d23d66d5, type: 3}
+  - windowsID: 1
+    windowPrefab: {fileID: 3529210787892948822, guid: c6f9066dcf6046b40bcdf11d03f961ac, type: 3}

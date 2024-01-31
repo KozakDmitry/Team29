@@ -6,6 +6,7 @@ using Scripts.Infostructure.Services.PersistentProgress;
 using Scripts.Logic;
 using Scripts.StaticData;
 using Scripts.UI.Logic;
+using Scripts.UI.Services.Windows;
 using Scripts.Weapon;
 using Scripts.Weapon.Armory;
 using System.Collections;
@@ -20,21 +21,24 @@ namespace Scripts.Infostructure.Factory
         private readonly IAssets _assets;
         private readonly IStaticDataService _staticData;
         private readonly IDifficultyDirectorService _difficultyService;
+        private readonly IWindowService _windowService;
 
         public List<ISavedProgressReader> ProgressReaders { get; } = new List<ISavedProgressReader>();
         public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
 
         private GameObject PlayerGameObject { get; set; }
-        public GameFactory(IAssets assets, IStaticDataService staticData, IDifficultyDirectorService directorService)
+        public GameFactory(IAssets assets, IStaticDataService staticData, IDifficultyDirectorService directorService, IWindowService windowService)
         {
             _assets = assets;
             _staticData = staticData;
             _difficultyService = directorService;
+            _windowService = windowService;
         }
         public GameObject CreateHUD()
         {
             GameObject hud = InstantiateRegistered("UI/HUD");
             hud.GetComponentInChildren<SurviveTimer>().Construct(_difficultyService);
+            hud.GetComponentInChildren<CreateWindowButton>().Construct(_windowService);
             return hud;
         }
 

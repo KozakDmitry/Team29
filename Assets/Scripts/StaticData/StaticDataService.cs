@@ -30,8 +30,9 @@ namespace Scripts.StaticData
 
         public void LoadWindows()
         {
+           
             _windowConfigs = Resources
-               .Load<WindowStaticData>("StaticData/UI/WindowsData")
+               .Load<WindowStaticData>("StaticData/Windows/WindowsStaticData")
                .Configs
                .ToDictionary(x => x.windowsID, x => x);
         }

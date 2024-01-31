@@ -44,7 +44,11 @@ namespace Scripts.Infostructure.States
             _services.RegisterSingle<IUIFactory>(new UIFactory(_services.Single<IAssets>(), _services.Single<IStaticDataService>(), _services.Single<IPersistentProgressService>()));
             _services.RegisterSingle<IWindowService>(new WindowService(_services.Single<IUIFactory>()));
             _services.RegisterSingle<IDifficultyDirectorService>(new DifficultyDirectorService());
-            _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssets>(),_services.Single<IStaticDataService>(), _services.Single<IDifficultyDirectorService>()));
+            _services.RegisterSingle<IGameFactory>(new GameFactory(
+                _services.Single<IAssets>(),
+                _services.Single<IStaticDataService>(), 
+                _services.Single<IDifficultyDirectorService>(), 
+                _services.Single<IWindowService>()));
             _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(), _services.Single<IGameFactory>()));
         }
 
@@ -53,6 +57,7 @@ namespace Scripts.Infostructure.States
             IStaticDataService staticData = new StaticDataService();
             staticData.LoadMonsters();
             staticData.LoadWeapons();
+            staticData.LoadWindows();
             _services.RegisterSingle(staticData);
         }
 

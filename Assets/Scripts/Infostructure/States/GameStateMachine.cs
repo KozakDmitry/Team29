@@ -2,6 +2,7 @@
 using Scripts.Infostructure.Services;
 using Scripts.Infostructure.Services.PersistentProgress;
 using Scripts.Infostructure.Services.SaveLoad;
+using Scripts.UI.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,7 +20,7 @@ namespace Scripts.Infostructure.States
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services),
                 [typeof(LoadProgressState)] = new LoadProgressState(this,services.Single<IPersistentProgressService>(), services.Single<ISaveLoadService>()),
-                [typeof(LoadLevelState)] = new LoadLevelState(this,sceneLoader,services.Single<IGameFactory>(), services.Single<IPersistentProgressService>()),
+                [typeof(LoadLevelState)] = new LoadLevelState(this,sceneLoader,services.Single<IGameFactory>(), services.Single<IPersistentProgressService>(), services.Single<IUIFactory>()),
                 [typeof(GameLoopState)] = new GameLoopState(this, services.Single<IGameFactory>()),         
             };
 

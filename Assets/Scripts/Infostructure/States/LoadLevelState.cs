@@ -2,6 +2,8 @@
 using Scripts.Infostructure.Services.PersistentProgress;
 using Scripts.Logic;
 using Scripts.UI.Logic;
+using Scripts.UI.Services;
+using System;
 using UnityEngine;
 
 namespace Scripts.Infostructure.States
@@ -11,17 +13,19 @@ namespace Scripts.Infostructure.States
         private readonly GameStateMachine _gameStateMachine;
         private readonly SceneLoader _sceneLoader;
         private readonly IGameFactory _gameFactory;
+        private readonly IUIFactory _UIFactory;
         private readonly IPersistentProgressService _progressService;
+       
  
 
         private const string StartPointTag = "StartPoint";
-        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, IGameFactory gameFactory, IPersistentProgressService progressService)
+        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, IGameFactory gameFactory, IPersistentProgressService progressService, IUIFactory UIFactory)
         {
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
             _gameFactory = gameFactory;
             _progressService = progressService;
-
+            _UIFactory = UIFactory;
         }
         public void Enter(string sceneName)
         {
@@ -45,10 +49,15 @@ namespace Scripts.Infostructure.States
         {
             GameObject _player = _gameFactory.CreatePlayer(GameObject.FindWithTag(StartPointTag));
             InitSpawner();
+            InitUIRoot();
             InitHUD(_player);
             BindCamera(_player);
         }
 
+        private void InitUIRoot()
+        {
+            _UIFactory.CreateUIRoot();
+        }
 
         private void InitSpawner() => 
             _gameFactory.CreateSpawner();

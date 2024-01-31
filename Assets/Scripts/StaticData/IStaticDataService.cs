@@ -9,9 +9,11 @@ namespace Scripts.StaticData
         void LoadMonsters();
 
         void LoadWeapons();
+
+        void LoadWindows();
         MonsterStaticData ForMonster(MonsterTypeID typeId);
         WeaponStaticData ForWeapon(WeaponTypeID typeId);
-        void LoadWindows();
+
         WindowConfig ForWindow(WindowsID windowId);
     }
 }
