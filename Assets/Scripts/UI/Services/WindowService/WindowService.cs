@@ -1,6 +1,9 @@
 ﻿
 
-using Unity.VisualScripting;
+using Scripts.UI.Windows;
+using Scripts.UI.Windows.Menu;
+using Scripts.UI.Windows.Shop;
+using UnityEngine;
 
 namespace Scripts.UI.Services.Windows
 {
@@ -14,25 +17,18 @@ namespace Scripts.UI.Services.Windows
         }
         public void Open(WindowsID windowId)
         {
-            //windowId switch
-            //{
-            //    WindowsID.Unknown => ,
-            //    WindowsID.StartMenu => _UIFactory.CreateStartMenu(),
-            //    WindowsID.Shop => _UIFactory.CreateShop(),
-            //    WindowsID.PauseMenu => _UIFactory.CreatePauseMenu(),
-            //};
             switch (windowId)
             {
                 case WindowsID.Unknown:
                     break;
                 case WindowsID.Shop:
-                    _UIFactory.CreateShop();
+                    _UIFactory.CreateElement<Shop>(windowId);
                     break;
                 case WindowsID.StartMenu:
-                    _UIFactory.CreateStartMenu();
+                    _UIFactory.CreateElement<StartMenu>(windowId);
                     break;
                 case WindowsID.PauseMenu:
-                    _UIFactory.CreatePauseMenu();
+                    _UIFactory.CreateElement<PauseMenu>(windowId);
                     break;
             }
         }

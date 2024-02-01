@@ -3,11 +3,10 @@ using Scripts.Infostructure.AssetManagment;
 using Scripts.Infostructure.Services.PersistentProgress;
 using Scripts.StaticData;
 using Scripts.StaticData.Windows;
-using Scripts.UI.Logic;
 using Scripts.UI.Services.Windows;
+using Scripts.UI.Windows;
 using Scripts.UI.Windows.Menu;
 using Scripts.UI.Windows.Shop;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 namespace Scripts.UI.Services
@@ -37,25 +36,14 @@ namespace Scripts.UI.Services
             UIRoot = root.transform;
         }
 
-        public void CreateStartMenu()
+
+        public void CreateElement<T>(WindowsID windowsID) where T : WindowBase
         {
-            WindowConfig config = _staticData.ForWindow(WindowsID.StartMenu);
-            StartMenu window = Object.Instantiate(config.windowPrefab, UIRoot) as StartMenu;
+            WindowConfig config = _staticData.ForWindow(windowsID);
+            T window = Object.Instantiate(config.windowPrefab, UIRoot) as T;
             window.Construct(_progressService);
+            
         }
 
-        public void CreatePauseMenu()
-        {
-            WindowConfig config = _staticData.ForWindow(WindowsID.PauseMenu);
-            PauseMenu window = Object.Instantiate(config.windowPrefab, UIRoot) as PauseMenu;
-            window.Construct(_progressService);      
-        }
-
-        public void CreateShop()
-        {
-            WindowConfig config = _staticData.ForWindow(WindowsID.PauseMenu);
-            Shop window = Object.Instantiate(config.windowPrefab, UIRoot) as Shop;
-            window.Construct(_progressService);
-        }
     }
 }
