@@ -39,11 +39,13 @@ namespace Scripts.UI.Services
 
         public void CreateElement<T>(WindowsID windowsID) where T : WindowBase
         {
+            
             WindowConfig config = _staticData.ForWindow(windowsID);
             T window = Object.Instantiate(config.windowPrefab, UIRoot) as T;
             window.Construct(_progressService);
             
         }
+
 
     }
 }

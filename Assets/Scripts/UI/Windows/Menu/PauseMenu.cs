@@ -7,8 +7,10 @@ namespace Scripts.UI.Windows.Menu
         protected override void OnAwake()
         {
             base.OnAwake();
-            Debug.Log("Kent");
+            closeButton.onClick.AddListener(()=> Time.timeScale = 1.0f);
+            Time.timeScale = 0f;
         }
+
         protected override void Initialize()
         {
             base.Initialize();
