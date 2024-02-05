@@ -45,7 +45,7 @@ namespace Scripts.Infostructure.Factory
         public GameObject CreateSpawner()
         {
             GameObject spawner = InstantiateRegistered("Enemies/EnemySpawner/Spawner");
-            spawner.GetComponent<EnemySpawner>().Construct();
+            spawner.GetComponent<EnemySpawner>().Construct(this, _difficultyService);
             return spawner; 
         }
         public GameObject ReturnPlayer()

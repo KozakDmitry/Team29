@@ -15,7 +15,7 @@ namespace Scripts.Infostructure.Services.DifficultyDirector
         private int _diffUpdateTimer;
         public int Difficulty { private set; get; }
         public event Action <int> DifficultyChanged;
-        private int DifficultStacks;
+        private int DifficultStacks; 
 
         public DifficultyDirectorService()
         {

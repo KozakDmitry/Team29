@@ -1,6 +1,7 @@
 
 using Scripts.Infostructure.Factory;
 using Scripts.Infostructure.Services;
+using Scripts.Infostructure.Services.DifficultyDirector;
 using Scripts.StaticData;
 using System.Collections;
 using UnityEngine;
@@ -20,17 +21,28 @@ namespace Scripts.Logic
 
 
         private IGameFactory _factory;
+        private IDifficultyDirectorService _difficultyDirectorService;
 
 
         private void Awake()
         {
-            _factory = AllServices.Container.Single<IGameFactory>();
+
         }
 
-        public void Construct()
+        public void Construct(IGameFactory factory, IDifficultyDirectorService directorService)
         {
+            _factory = factory;
+            _difficultyDirectorService = directorService;
+            _difficultyDirectorService.DifficultyChanged += DifficultyChanged;
             StartSpawning();
+
         }
+
+        private void DifficultyChanged(int obj)
+        {
+            
+        }
+
         public void StartSpawning()
         { 
             StartCoroutine(Spawn());
