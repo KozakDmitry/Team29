@@ -123,6 +123,11 @@ namespace Scripts.Infostructure.Factory
 
         }
 
-       
+        public LootDrop CreateLoot()
+        {
+            LootDrop drop = _assets.InstantiatePrefab(AssetPaths.Loot).GetComponent<LootDrop>();
+            drop.Construct();
+            return drop;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Scripts.Infostructure.Services;
+﻿using Scripts.Enemy;
+using Scripts.Infostructure.Services;
 using Scripts.Infostructure.Services.PersistentProgress;
 using Scripts.StaticData;
 using System.Collections.Generic;
@@ -19,5 +20,6 @@ namespace Scripts.Infostructure.Factory
         public GameObject CreateHUD();
         public GameObject ReturnPlayer();
         void CleanUp();
+        LootDrop CreateLoot();
     }
 }

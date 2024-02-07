@@ -5,6 +5,7 @@ namespace Scripts.Infostructure.AssetManagment
 {
     public class AssetManager : IAssets
     {
+
         public GameObject InstantiatePrefab(string path)
         {
             GameObject prefab = Resources.Load<GameObject>(path);
