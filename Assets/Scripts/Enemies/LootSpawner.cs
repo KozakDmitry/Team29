@@ -1,4 +1,5 @@
 ﻿
+using Scripts.Data;
 using Scripts.Enemy;
 using Scripts.Infostructure.Factory;
 using UnityEngine;
@@ -25,7 +26,7 @@ namespace Scripts.Enemies
             LootDrop drop = _gameFactory.CreateLoot();
             drop.transform.position = transform.position;
 
-            drop.Initialize();
+            drop.Initialize(new Loot());
         }
     }
 }
