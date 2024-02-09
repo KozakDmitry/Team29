@@ -2,6 +2,8 @@
 
 namespace Scripts.Data
 {
+
+    [Serializable]
     public class LootData
     {
         public int collected;

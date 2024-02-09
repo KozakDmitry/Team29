@@ -7,11 +7,12 @@ namespace Scripts.Data
     {
 
         public Stats HeroStats;
-
+        public LootData LootData;
         public PlayerProgress()
         {
 
             HeroStats = new Stats();
+            LootData = new LootData();
 
         }
     }

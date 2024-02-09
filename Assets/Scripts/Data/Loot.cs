@@ -1,5 +1,8 @@
-﻿namespace Scripts.Data
+﻿using System;
+
+namespace Scripts.Data
 {
+    [Serializable]
     public class Loot
     {
 
