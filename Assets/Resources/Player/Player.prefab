@@ -66,6 +66,72 @@ Transform:
   - {fileID: 894496968574356672}
   m_Father: {fileID: 4969947331332545706}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &843032092855435856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5256388749717790361}
+  - component: {fileID: 5025994796713514445}
+  - component: {fileID: 576809588282264328}
+  m_Layer: 12
+  m_Name: LootGrappler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5256388749717790361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843032092855435856}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4797872906164755319}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5025994796713514445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843032092855435856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b87f8d2892c5a4ea253367babe32ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &576809588282264328
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843032092855435856}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &874086183921089541
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,6 +2381,7 @@ GameObject:
   - component: {fileID: -5982235640908490710}
   - component: {fileID: 3722868730728011420}
   - component: {fileID: 827767507409591327}
+  - component: {fileID: 1089103699400604670}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -2339,6 +2406,7 @@ Transform:
   - {fileID: 8753070054391321264}
   - {fileID: 4797872906164755315}
   - {fileID: 6621379225652441661}
+  - {fileID: 5256388749717790361}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4797872906174280855
@@ -2499,6 +2567,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c76aece65ecc4a41a54789b201efb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1089103699400604670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797872906164782935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7d4e3b6101091438b8b2bf721826f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LootLocator: {fileID: 5025994796713514445}
 --- !u!1 &4797872906164782937
 GameObject:
   m_ObjectHideFlags: 0

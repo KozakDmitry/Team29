@@ -1,12 +1,10 @@
 ﻿
-using Scripts.Infostructure.AssetManagment;
+using Scripts.Infostructure.AssetManagement;
 using Scripts.Infostructure.Services.PersistentProgress;
 using Scripts.StaticData;
 using Scripts.StaticData.Windows;
 using Scripts.UI.Services.Windows;
 using Scripts.UI.Windows;
-using Scripts.UI.Windows.Menu;
-using Scripts.UI.Windows.Shop;
 using UnityEngine;
 
 namespace Scripts.UI.Services

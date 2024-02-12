@@ -1,4 +1,4 @@
-﻿using Scripts.Infostructure.AssetManagment;
+﻿using Scripts.Infostructure.AssetManagement;
 using Scripts.Infostructure.Factory;
 using Scripts.Infostructure.Services;
 using Scripts.Infostructure.Services.DifficultyDirector;

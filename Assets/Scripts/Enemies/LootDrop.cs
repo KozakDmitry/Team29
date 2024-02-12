@@ -1,5 +1,4 @@
 ﻿using Scripts.Data;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Scripts.Enemy

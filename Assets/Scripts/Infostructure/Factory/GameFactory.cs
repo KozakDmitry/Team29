@@ -1,6 +1,6 @@
 ﻿using Scripts.Enemies;
 using Scripts.Enemy;
-using Scripts.Infostructure.AssetManagment;
+using Scripts.Infostructure.AssetManagement;
 using Scripts.Infostructure.Services.DifficultyDirector;
 using Scripts.Infostructure.Services.PersistentProgress;
 using Scripts.Logic;
@@ -89,6 +89,7 @@ namespace Scripts.Infostructure.Factory
             monster.GetComponent<Attack>().Construct(PlayerGameObject.transform);
             monster.GetComponent<AgentMoveToPlayer>().Construct(PlayerGameObject.transform);
             monster.GetComponent<RotateToPlayer>().Construct(PlayerGameObject.transform);
+            monster.GetComponent<LootSpawner>().Construct(this);
             monster.GetComponent<NavMeshAgent>().speed = monsterData.MoveSpeed;
             return monster;
         }
@@ -126,9 +127,9 @@ namespace Scripts.Infostructure.Factory
 
         public LootDrop CreateLoot()
         {
-            LootDrop drop = _assets.InstantiatePrefab(AssetPaths.Loot).GetComponent<LootDrop>();
-            drop.Construct();
-            return drop;
+            GameObject drop = InstantiateRegistered(AssetPaths.Loot);
+            drop.GetComponent<LootDrop>().Construct();
+            return drop.GetComponent<LootDrop>();
         }
     }
 }

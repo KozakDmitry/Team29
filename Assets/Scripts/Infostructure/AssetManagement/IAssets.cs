@@ -1,7 +1,7 @@
 ﻿using Scripts.Infostructure.Services;
 using UnityEngine;
 
-namespace Scripts.Infostructure.AssetManagment
+namespace Scripts.Infostructure.AssetManagement
 {
     public interface IAssets :IService
     {

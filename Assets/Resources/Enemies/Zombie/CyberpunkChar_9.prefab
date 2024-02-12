@@ -766,6 +766,7 @@ GameObject:
   - component: {fileID: 1549230558340410259}
   - component: {fileID: -3060285236457951469}
   - component: {fileID: -5333746665762085746}
+  - component: {fileID: 7470402426304555627}
   m_Layer: 0
   m_Name: CyberpunkChar_9
   m_TagString: Enemy
@@ -969,6 +970,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Attack: {fileID: -3060285236457951469}
   TriggerObserver: {fileID: 6698025256978621972}
+--- !u!114 &7470402426304555627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763708642011272156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4433a5c5a3f45b4b980c101109930ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDeath: {fileID: -8215141959819616834}
 --- !u!1 &1883767075799392814
 GameObject:
   m_ObjectHideFlags: 0

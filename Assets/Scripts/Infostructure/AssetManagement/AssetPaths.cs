@@ -1,4 +1,4 @@
-﻿namespace Scripts.Infostructure.AssetManagment
+﻿namespace Scripts.Infostructure.AssetManagement
 {
     public static class AssetPaths
     {

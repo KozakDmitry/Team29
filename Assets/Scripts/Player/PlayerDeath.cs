@@ -2,8 +2,8 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Scripts.Player 
-{ 
+namespace Scripts.Player
+{
     [RequireComponent(typeof(PlayerHealth))]
     public class PlayerDeath : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Scripts.Infostructure.AssetManagment
+namespace Scripts.Infostructure.AssetManagement
 {
     public class AssetManager : IAssets
     {
