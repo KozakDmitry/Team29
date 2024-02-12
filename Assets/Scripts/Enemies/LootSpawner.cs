@@ -24,7 +24,7 @@ namespace Scripts.Enemies
         public void SpawnLoot() 
         {
             LootDrop drop = _gameFactory.CreateLoot();
-            drop.transform.position = transform.position;
+            drop.transform.position = new Vector3(transform.position.x, transform.position.y+1f, transform.position.z);
 
             drop.Initialize(new Loot());
         }

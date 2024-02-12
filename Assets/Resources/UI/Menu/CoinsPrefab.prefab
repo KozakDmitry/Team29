@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 1374813195130255139}
   - component: {fileID: 6199062256057531962}
   - component: {fileID: 5589774638446515642}
+  - component: {fileID: 4172585741809240185}
   m_Layer: 5
   m_Name: CoinsPrefab
   m_TagString: Untagged
@@ -313,3 +314,16 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &4172585741809240185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3868358954612076090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d673f863772873b49b34df58557db252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Counter: {fileID: 198385964017050999}

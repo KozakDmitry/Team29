@@ -1,4 +1,5 @@
 ﻿using Scripts.Data;
+using UnityEditor;
 using UnityEngine;
 
 namespace Scripts.Enemy
@@ -10,9 +11,11 @@ namespace Scripts.Enemy
 
         private bool _picked;
         private Loot _loot;
-        public void Construct()
-        {
+        private PlayerProgress _progress;
 
+        public void Construct(PlayerProgress progress)
+        {
+            _progress = progress;
         }
 
         public void Initialize(Loot loot)
@@ -20,8 +23,13 @@ namespace Scripts.Enemy
             _loot = loot;
         }
 
-        private void OnTriggerEnter(Collider other) =>
-            PickUp();
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                PickUp();
+            }
+        }
 
         private void PickUp()
         {
@@ -31,15 +39,15 @@ namespace Scripts.Enemy
             }
             _picked = true;
 
-            UpdateWorldData();
+            UpdateData();
             //ShowText();
-
-            Destroy(this.gameObject, 1.5f);
+            Debug.Log("Collected!");
+            Destroy(this.gameObject, 0.5f);
         }
 
-        private void UpdateWorldData()
+        private void UpdateData()
         {
-
+            _progress.LootData.Collect(_loot);
         }
 
 

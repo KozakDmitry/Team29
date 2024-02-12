@@ -23,23 +23,30 @@ namespace Scripts.Infostructure.Factory
         private readonly IStaticDataService _staticData;
         private readonly IDifficultyDirectorService _difficultyService;
         private readonly IWindowService _windowService;
+        private readonly IPersistentProgressService _progressService;
 
         public List<ISavedProgressReader> ProgressReaders { get; } = new List<ISavedProgressReader>();
         public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
 
         private GameObject PlayerGameObject { get; set; }
-        public GameFactory(IAssets assets, IStaticDataService staticData, IDifficultyDirectorService directorService, IWindowService windowService)
+        public GameFactory(IAssets assets, 
+            IStaticDataService staticData, 
+            IDifficultyDirectorService directorService, 
+            IWindowService windowService, 
+            IPersistentProgressService progressService)
         {
             _assets = assets;
             _staticData = staticData;
             _difficultyService = directorService;
             _windowService = windowService;
+            _progressService =  progressService;
         }
         public GameObject CreateHUD()
         {
             GameObject hud = InstantiateRegistered("UI/HUD");
             hud.GetComponentInChildren<SurviveTimer>().Construct(_difficultyService);
             hud.GetComponentInChildren<CreateWindowButton>().Construct(_windowService);
+            hud.GetComponentInChildren<LootCounter>().Construct(_progressService.Progress);
             return hud;
         }
 
@@ -128,7 +135,7 @@ namespace Scripts.Infostructure.Factory
         public LootDrop CreateLoot()
         {
             GameObject drop = InstantiateRegistered(AssetPaths.Loot);
-            drop.GetComponent<LootDrop>().Construct();
+            drop.GetComponent<LootDrop>().Construct(_progressService.Progress);
             return drop.GetComponent<LootDrop>();
         }
     }

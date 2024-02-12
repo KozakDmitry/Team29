@@ -48,7 +48,9 @@ namespace Scripts.Infostructure.States
                 _services.Single<IAssets>(),
                 _services.Single<IStaticDataService>(), 
                 _services.Single<IDifficultyDirectorService>(), 
-                _services.Single<IWindowService>()));
+                _services.Single<IWindowService>(),
+                _services.Single<IPersistentProgressService>())
+                );
             _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(), _services.Single<IGameFactory>()));
         }
 

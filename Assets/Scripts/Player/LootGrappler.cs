@@ -1,4 +1,5 @@
 ﻿using Scripts.Enemy;
+using Scripts.Infostructure.Services.PersistentProgress;
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,11 +9,18 @@ namespace Scripts.Player
     public class LootGrappler : MonoBehaviour
     {
         public TriggerObserver LootLocator;
+        private IPersistentProgressService _progressService;
 
         private void Start()
         {
             LootLocator.TriggerEnter += TriggerEnter;
             LootLocator.TriggerExit += TriggerExit;
+        }
+
+
+        public void Construct(IPersistentProgressService progressService)
+        {
+            _progressService = progressService;
         }
 
         private void TriggerExit(Collider collider)
@@ -29,7 +37,6 @@ namespace Scripts.Player
                 }
             }
         }
-
         private void TriggerEnter(Collider collider)
         {
             if (collider.gameObject.CompareTag("Loot"))
@@ -44,5 +51,6 @@ namespace Scripts.Player
                 }
             }
         }
+
     }
 }
