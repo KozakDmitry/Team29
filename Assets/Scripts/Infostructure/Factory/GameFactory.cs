@@ -46,7 +46,7 @@ namespace Scripts.Infostructure.Factory
             GameObject hud = InstantiateRegistered("UI/HUD");
             hud.GetComponentInChildren<SurviveTimer>().Construct(_difficultyService);
             hud.GetComponentInChildren<CreateWindowButton>().Construct(_windowService);
-            hud.GetComponentInChildren<LootCounter>().Construct(_progressService.Progress);
+            hud.GetComponentInChildren<LootCounter>().Construct(_progressService);
             return hud;
         }
 

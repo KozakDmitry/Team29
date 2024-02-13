@@ -1,4 +1,5 @@
 ﻿using Scripts.Data;
+using Scripts.Infostructure.Services.PersistentProgress;
 using TMPro;
 using UnityEngine;
 
@@ -7,18 +8,18 @@ namespace Scripts.UI.Elements
     public class LootCounter : MonoBehaviour
     {
         public TextMeshProUGUI Counter;
-        private PlayerProgress _playerProgress;
+        private IPersistentProgressService _playerProgress;
 
-        public void Construct(PlayerProgress progress)
+        public void Construct(IPersistentProgressService progress)
         {
             _playerProgress = progress;
-            _playerProgress.LootData.ChangedLoot += UpdateCounter;
+            _playerProgress.Progress.LootData.ChangedLoot += UpdateCounter;
             UpdateCounter();
         }
 
         private void UpdateCounter()
         {
-           Counter.text = $"(_playerProgress.LootData.collected)";
+           Counter.text = $"{_playerProgress.Progress.LootData.collected}";
         }
     }
 }
