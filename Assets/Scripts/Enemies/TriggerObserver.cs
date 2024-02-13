@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Scripts.Enemy
 {
-    [RequireComponent( typeof(Collider))]
+    [RequireComponent(typeof(Collider))]
     public class TriggerObserver : MonoBehaviour
     {
         public event Action<Collider> TriggerEnter;

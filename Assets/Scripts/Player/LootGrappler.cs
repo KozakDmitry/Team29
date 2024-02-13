@@ -16,6 +16,10 @@ namespace Scripts.Player
             LootLocator.TriggerExit += TriggerExit;
         }
 
+        private void Update()
+        {
+            
+        }
 
         private void TriggerExit(Collider collider)
         {
@@ -26,11 +30,7 @@ namespace Scripts.Player
             
             if (collider.gameObject.CompareTag("Loot"))
             {
-                Debug.Log("Entered Area");
-                Vector3 directionToCenter = (transform.position - collider.transform.position).normalized;
-
-                Vector3 newPosition = collider.transform.position + directionToCenter * pullSpeed * Time.deltaTime;
-                collider.transform.position = newPosition;
+                Vector3.Lerp(collider.transform.position, transform.position,1f);
             }
         }
 

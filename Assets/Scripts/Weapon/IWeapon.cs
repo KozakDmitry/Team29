@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Scripts.Weapon
 {
-    public interface IWeapon
+    public interface IWeapon 
     {
     
         public string name { get; set; }
