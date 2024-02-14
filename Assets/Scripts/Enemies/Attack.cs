@@ -10,7 +10,7 @@ namespace Scripts.Enemy
     {
         public EnemyAnimator animator;
         public float AttackCooldown = 3f;
-        public float Cleavage = 1f;
+        public float Cleavage = 0.5f;
         public float EffectiveRange = 1f;
         public float Damage = 15;
 

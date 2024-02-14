@@ -44,7 +44,7 @@ namespace Scripts.Weapon.Armory
 
         private void CreateSaws()
         {
-            
+             
         }
 
         public void Construct()

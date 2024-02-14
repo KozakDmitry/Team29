@@ -2,7 +2,6 @@
 using Scripts.UI.Services.Windows;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 namespace Scripts.StaticData

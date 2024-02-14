@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 9077157818895854538}
   - component: {fileID: 5000000314085116724}
   - component: {fileID: 6698025256978621972}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AttackAgro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -953,8 +953,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: -2724974976322400434}
   AttackCooldown: 2
-  Cleavage: 2
-  EffectiveRange: 2
+  Cleavage: 1
+  EffectiveRange: 1.2
   Damage: 10
 --- !u!114 &-5333746665762085746
 MonoBehaviour:
