@@ -18,7 +18,7 @@ namespace Scripts.Logic
         public float delay;
 
         public MonsterTypeID MonsterTypeID;
-
+        
 
         private IGameFactory _factory;
         private IDifficultyDirectorService _difficultyDirectorService;
@@ -38,9 +38,14 @@ namespace Scripts.Logic
 
         }
 
-        private void DifficultyChanged(int obj)
+        private void DifficultyChanged(int newDifficulty)
         {
-            
+            CheckNewMonsters(newDifficulty);
+        }
+
+        private void CheckNewMonsters(int newDiff)
+        {
+            //if(newDiff>=)
         }
 
         public void StartSpawning()
