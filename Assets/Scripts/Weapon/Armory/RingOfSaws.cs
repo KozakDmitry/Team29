@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace Scripts.Weapon.Armory
 {
-    public class Saws : MonoBehaviour, IWeapon
+    public class RingOfSaws : MonoBehaviour, IWeapon
     {
         private int _level;
         private float _damage;
         private float _damagePerLevel;
         private Transform _heroTransform;
-        private GameObject _bulletPrefab;
+        private GameObject _sawsPrefab;
 
         public int level
         {
@@ -33,8 +33,8 @@ namespace Scripts.Weapon.Armory
         }
         public GameObject attackPrefab
         {
-            get => _bulletPrefab;
-            set => _bulletPrefab = value;
+            get => _sawsPrefab;
+            set => _sawsPrefab = value;
         }
 
         public void Activate()
@@ -44,7 +44,7 @@ namespace Scripts.Weapon.Armory
 
         private void CreateSaws()
         {
-             
+             Instantiate(attackPrefab,this.gameObject.transform);
         }
 
         public void Construct()

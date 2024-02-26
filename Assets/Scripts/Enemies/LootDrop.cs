@@ -42,7 +42,7 @@ namespace Scripts.Enemy
             UpdateData();
             //ShowText();
             Debug.Log("Collected!");
-            Destroy(this.gameObject, 0.5f);
+            Destroy(this.gameObject);
         }
 
         private void UpdateData()

@@ -23,8 +23,13 @@ namespace Scripts.Weapon
 
         public void AddWeapon(WeaponTypeID weaponTypeID)
         {
+            Debug.Log("1");
             GameObject weapon = _gameFactory.AddWeapon(weaponTypeID);
+            Debug.Log("2");
+
             weapon.transform.parent = WeaponList.transform;
+            Debug.Log("3");
+
             currentWeapons.Add(weapon.GetComponent<IWeapon>());
             weapon.GetComponent<IWeapon>().Activate();
         }
