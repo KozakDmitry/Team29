@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Scripts.Enemy;
+using Scripts.Logic;
+using System;
 using UnityEngine;
 
 namespace Scripts.Weapon.Armory
@@ -11,6 +13,7 @@ namespace Scripts.Weapon.Armory
         private Transform _heroTransform;
         private GameObject _sawsPrefab;
 
+        private GameObject _generatedSaws;
         public int level
         {
             get => _level;
@@ -44,9 +47,21 @@ namespace Scripts.Weapon.Armory
 
         private void CreateSaws()
         {
-             Instantiate(attackPrefab,this.gameObject.transform);
+            _generatedSaws = Instantiate(attackPrefab, this.gameObject.transform);
+            _generatedSaws.GetComponent<TriggerObserver>().TriggerEnter += OnTriggerEnter;
+            _generatedSaws.GetComponent<TriggerObserver>().TriggerExit += OnTriggerExit;
         }
 
+        private void OnTriggerExit(Collider collider)
+        {
+
+        }
+
+        private void OnTriggerEnter(Collider collider)
+        {
+            collider.gameObject.GetComponent<IHealth>().TakeDamage(damage);
+        }
+        
         public void Construct()
         {
             throw new System.NotImplementedException();
@@ -54,12 +69,24 @@ namespace Scripts.Weapon.Armory
 
         public void Deactivate()
         {
-            throw new System.NotImplementedException();
+            Unsubscribe();
+            Destroy(_generatedSaws);
+        }
+
+        private void Unsubscribe()
+        {
+            _generatedSaws.GetComponent<TriggerObserver>().TriggerEnter -= OnTriggerEnter;
+            _generatedSaws.GetComponent<TriggerObserver>().TriggerExit -= OnTriggerExit;
         }
 
         public void LevelUp()
         {
             throw new System.NotImplementedException();
+        }
+
+        private void OnDestroy()
+        {
+            Unsubscribe();
         }
     }
 }

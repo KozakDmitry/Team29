@@ -27,13 +27,8 @@ namespace Scripts.Logic
 
 		void OnTriggerEnter(Collider other)
 		{
-			if (other.gameObject.CompareTag("Enemy"))
-			{
 				other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
 				Destroy(this.gameObject);
-			}
-
-
         }
 
 		IEnumerator DestroySelf()

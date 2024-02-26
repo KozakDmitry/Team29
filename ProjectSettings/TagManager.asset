@@ -18,11 +18,11 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - AttackEntities
   - AttackZone
   - Player
   - Loot
-  - 
+  - Enemy
   - 
   - 
   - 
