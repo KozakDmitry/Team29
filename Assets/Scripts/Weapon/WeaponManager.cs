@@ -25,6 +25,9 @@ namespace Scripts.Weapon
         {
             GameObject weapon = _gameFactory.AddWeapon(weaponTypeID);
             weapon.transform.parent = WeaponList.transform;
+            
+            weapon.transform.localPosition = Vector3.zero;
+            Debug.Log("here");
             currentWeapons.Add(weapon.GetComponent<IWeapon>());
             weapon.GetComponent<IWeapon>().Activate();
         }

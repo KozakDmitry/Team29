@@ -59,9 +59,13 @@ namespace Scripts.Weapon.Armory
 
         private void OnTriggerEnter(Collider collider)
         {
-            collider.gameObject.GetComponent<IHealth>().TakeDamage(damage);
+            if (collider.CompareTag("Enemy"))
+            {
+                collider.gameObject.GetComponent<IHealth>().TakeDamage(damage);
+            }
+
         }
-        
+
         public void Construct()
         {
             throw new System.NotImplementedException();

@@ -1,7 +1,5 @@
 ﻿using Scripts.Enemy;
-using Scripts.Infostructure.Services.PersistentProgress;
-using System;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Scripts.Player
@@ -15,10 +13,17 @@ namespace Scripts.Player
             LootLocator.TriggerEnter += TriggerEnter;
             LootLocator.TriggerExit += TriggerExit;
         }
-
+        private List<GameObject> lootToPull = new List<GameObject>();
         private void Update()
         {
             
+        }
+        private void FixedUpdate()
+        {
+            foreach (GameObject loot in lootToPull)
+            {
+                loot.GetComponent<Rigidbody>().AddForce((loot.transform.position - transform.position)); 
+            }
         }
 
         private void TriggerExit(Collider collider)
@@ -30,7 +35,7 @@ namespace Scripts.Player
             
             if (collider.gameObject.CompareTag("Loot"))
             {
-                Vector3.Lerp(collider.transform.position, transform.position,1f);
+                lootToPull.Add(collider.gameObject);
             }
         }
 
