@@ -1,4 +1,5 @@
 ﻿using Scripts.StaticData;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -15,6 +16,17 @@ namespace Scripts.Weapon
                 other.GetComponent<WeaponManager>().AddWeapon(weaponType);      
                 Destroy(this.gameObject);
             }
+        }
+
+
+        private void FixedUpdate()
+        {
+            Rotating();
+        }
+
+        private void Rotating()
+        {
+            transform.Rotate(Vector3.up, 1f);
         }
     }
 }

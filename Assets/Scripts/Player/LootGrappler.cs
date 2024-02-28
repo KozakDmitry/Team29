@@ -25,7 +25,7 @@ namespace Scripts.Player
             {
                 if (loot != null)
                 {
-                    loot.transform.position = Vector3.MoveTowards(loot.transform.position, transform.position, 1f);
+                    loot.transform.position = Vector3.MoveTowards(loot.transform.position, transform.position, 0.1f);
                 }
                 else
                 {
@@ -40,9 +40,7 @@ namespace Scripts.Player
         }
         private void TriggerEnter(Collider collider)
         {
-            Debug.Log("HereTheLoot");
             lootToPull.Add(collider.gameObject);
-
         }
 
 

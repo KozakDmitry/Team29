@@ -31,6 +31,14 @@ namespace Scripts.Enemy
             }
         }
 
+        private void FixedUpdate()
+        {
+            Rotating();
+        }
+        private void Rotating()
+        {
+            transform.Rotate(Vector3.up, 1f);
+        }
         private void PickUp()
         {
             if (_picked)

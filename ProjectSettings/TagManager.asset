@@ -14,16 +14,16 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
   - AttackEntities
   - AttackZone
-  - Player
-  - Loot
+  - 
   - Enemy
+  - Player
+  - 
   - LootCollector
+  - Loot
+  - 
+  - 
   - 
   - 
   - 

@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: -3060285236457951469}
   - component: {fileID: -5333746665762085746}
   - component: {fileID: 7470402426304555627}
-  m_Layer: 14
+  m_Layer: 9
   m_Name: CyberpunkChar_9
   m_TagString: Enemy
   m_Icon: {fileID: 0}
