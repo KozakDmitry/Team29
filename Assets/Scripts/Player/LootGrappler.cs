@@ -1,4 +1,5 @@
 ﻿using Scripts.Enemy;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,28 +17,34 @@ namespace Scripts.Player
         private List<GameObject> lootToPull = new List<GameObject>();
         private void Update()
         {
-            
+
         }
         private void FixedUpdate()
         {
             foreach (GameObject loot in lootToPull)
             {
-                loot.GetComponent<Rigidbody>().AddForce((loot.transform.position - transform.position)); 
+                if (loot != null)
+                {
+                    loot.transform.position = Vector3.MoveTowards(loot.transform.position, transform.position, 1f);
+                }
+                else
+                {
+                    lootToPull.Remove(loot);
+                }
             }
         }
 
         private void TriggerExit(Collider collider)
         {
-           
+
         }
         private void TriggerEnter(Collider collider)
         {
-            
-            if (collider.gameObject.CompareTag("Loot"))
-            {
-                lootToPull.Add(collider.gameObject);
-            }
+            Debug.Log("HereTheLoot");
+            lootToPull.Add(collider.gameObject);
+
         }
+
 
     }
 }
