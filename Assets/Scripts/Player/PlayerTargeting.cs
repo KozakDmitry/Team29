@@ -10,7 +10,7 @@ namespace Scripts.Player
     public class PlayerTargeting : MonoBehaviour
     {
         public TriggerObserver EnemyChecker;
-        public LayerMask buildingLayer;
+        public LayerMask EnemyLayer;
 
         private List<GameObject> targets = new List<GameObject>();
         private float minDistance;
@@ -23,33 +23,37 @@ namespace Scripts.Player
 
         private void Update()
         {
-            minDistance = float.MaxValue;
-            foreach (GameObject target in targets)
-            {
-                if (target != null)
-                {
-                    CheckDistance(target);
-                }
-                else
-                {
-                    targets.Remove(target);
-                }
 
-            }
+            CheckDistance();
+
         }
 
-        private void CheckDistance(GameObject target)
+        private void OnDrawGizmosSelected()
         {
-            if (Vector3.Magnitude(target.transform.position - transform.position) < minDistance)
+            Gizmos.color = Color.red;
+            Debug.DrawLine(transform.position, transform.position + transform.forward);
+            Gizmos.DrawWireSphere(transform.position, 15f);
+        }
+        private void CheckDistance()
+        {
+            RaycastHit hit;
+            if (Physics.SphereCast(transform.position, 15f, transform.position, out hit, EnemyLayer))
             {
-                if (Physics.Linecast(transform.position, target.transform.position, layerMask: buildingLayer))
-                {
-                    Vector3 direction = target.transform.position - transform.position;
-                    Quaternion rotation = Quaternion.LookRotation(direction);
-                    transform.rotation = rotation;
-
-                }
+                Vector3 targetDirection = hit.transform.position - transform.position;
+                targetDirection.y = 0f;
+                Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+                transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
             }
+            //if (Vector3.Magnitude(target.transform.position - transform.position) < minDistance)
+            //{
+            //    if (Physics.Linecast(transform.position, target.transform.position, layerMask: buildingLayer))
+            //    {
+            //        Vector3 targetDirection = target.transform.position - transform.position;
+            //        targetDirection.y = 0f;              
+            //        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+            //        transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
+            //    }
+            //}
         }
 
         private void LookAtTarget(Vector3 position)
@@ -59,8 +63,7 @@ namespace Scripts.Player
 
         private void EnemyDetected(Collider collider)
         {
-            Debug.Log("HERE");
-            targets.Add(collider.gameObject);
+
         }
     }
 }

@@ -348,11 +348,11 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 10
+  m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3099746358151762459
 MonoBehaviour:
@@ -2683,9 +2683,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyChecker: {fileID: 3099746358151762459}
-  buildingLayer:
+  EnemyLayer:
     serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 512
 --- !u!1 &4797872906164782937
 GameObject:
   m_ObjectHideFlags: 0
