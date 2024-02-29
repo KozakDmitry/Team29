@@ -2683,6 +2683,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyChecker: {fileID: 3099746358151762459}
+  buildingLayer:
+    serializedVersion: 2
+    m_Bits: 16384
 --- !u!1 &4797872906164782937
 GameObject:
   m_ObjectHideFlags: 0

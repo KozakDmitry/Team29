@@ -13,7 +13,7 @@ namespace Scripts.Weapon
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                other.GetComponent<WeaponManager>().AddWeapon(weaponType);      
+                other.GetComponent<WeaponManager>().AddWeapon(weaponType);
                 Destroy(this.gameObject);
             }
         }

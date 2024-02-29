@@ -40,7 +40,11 @@ namespace Scripts.Player
         }
         private void TriggerEnter(Collider collider)
         {
-            lootToPull.Add(collider.gameObject);
+            if (collider.CompareTag("Loot"))
+            {
+                lootToPull.Add(collider.gameObject);
+            }
+            
         }
 
 
