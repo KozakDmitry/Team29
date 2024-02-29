@@ -3,23 +3,44 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.AI;
+using System.Linq;
+using static UnityEngine.GraphicsBuffer;
 
 namespace Scripts.Player
 {
     public class PlayerTargeting : MonoBehaviour
     {
-        public TriggerObserver EnemyChecker;
-        public LayerMask EnemyLayer;
-
-        private List<GameObject> targets = new List<GameObject>();
+        public LayerMask EnemyLayer, BuildingLayer;
         private float minDistance;
 
         private void Start()
         {
-            EnemyChecker.TriggerEnter += EnemyDetected;
+            Invoke(nameof(SearchingTarget), 1.0f);
         }
 
+        private void SearchingTarget()
+        {
+
+            Collider[] results = new Collider[10];
+            minDistance = float.MaxValue;
+            int hits = Physics.OverlapSphereNonAlloc(transform.position, 15f, results, EnemyLayer);
+            for (int i = 0; i < hits; i++)
+            {
+                Vector3 targetDirection = results[i].transform.position - transform.position;
+                if (targetDirection.sqrMagnitude < minDistance * minDistance)
+                {
+                    if (!Physics.Linecast(transform.position, results[i].transform.position, layerMask: BuildingLayer))
+                    {
+                        targetDirection = results[i].transform.position - transform.position;
+                        targetDirection.y = 0f;
+                        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+                        transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
+                    }
+
+                }
+            }
+
+        }
 
         private void Update()
         {
@@ -36,30 +57,27 @@ namespace Scripts.Player
         }
         private void CheckDistance()
         {
-            RaycastHit hit;
-            if (Physics.SphereCast(transform.position, 15f, transform.position, out hit, EnemyLayer))
+            Collider[] results = new Collider[10];
+            minDistance = float.MaxValue;
+            int hits = Physics.OverlapSphereNonAlloc(transform.position, 15f, results, EnemyLayer);
+            for (int i = 0; i < hits; i++)
             {
-                Vector3 targetDirection = hit.transform.position - transform.position;
-                targetDirection.y = 0f;
-                Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-                transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
+                Vector3 targetDirection = results[i].transform.position - transform.position;
+                if (targetDirection.sqrMagnitude < minDistance * minDistance)
+                {
+                    if (!Physics.Linecast(transform.position, results[i].transform.position, layerMask: BuildingLayer))
+                    {
+                        targetDirection = results[i].transform.position - transform.position;
+                        targetDirection.y = 0f;
+                        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+                        transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
+                    }
+
+                }
             }
-            //if (Vector3.Magnitude(target.transform.position - transform.position) < minDistance)
-            //{
-            //    if (Physics.Linecast(transform.position, target.transform.position, layerMask: buildingLayer))
-            //    {
-            //        Vector3 targetDirection = target.transform.position - transform.position;
-            //        targetDirection.y = 0f;              
-            //        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-            //        transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
-            //    }
-            //}
+
         }
 
-        private void LookAtTarget(Vector3 position)
-        {
-            throw new NotImplementedException();
-        }
 
         private void EnemyDetected(Collider collider)
         {
