@@ -15,12 +15,11 @@ namespace Scripts.Player
 
         private void Start()
         {
-            Invoke(nameof(SearchingTarget), 1.0f);
+            //InvokeRepeating(nameof(SearchingTarget), 1.0f,1.0f);
         }
 
         private void SearchingTarget()
         {
-
             Collider[] results = new Collider[10];
             minDistance = float.MaxValue;
             int hits = Physics.OverlapSphereNonAlloc(transform.position, 15f, results, EnemyLayer);
@@ -45,16 +44,10 @@ namespace Scripts.Player
         private void Update()
         {
 
-            CheckDistance();
+           CheckDistance();
 
         }
 
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.red;
-            Debug.DrawLine(transform.position, transform.position + transform.forward);
-            Gizmos.DrawWireSphere(transform.position, 15f);
-        }
         private void CheckDistance()
         {
             Collider[] results = new Collider[10];
@@ -78,10 +71,5 @@ namespace Scripts.Player
 
         }
 
-
-        private void EnemyDetected(Collider collider)
-        {
-
-        }
     }
 }
