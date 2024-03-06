@@ -18,7 +18,7 @@ namespace Scripts.Infostructure.Services.SaveLoad
         }
         public PlayerProgress LoadProgress()
         {
-            return new PlayerProgress();
+            return new PlayerProgress(initialLevel:"City");
         }
 
         public void SaveProgress()

@@ -9,6 +9,12 @@ using System.IO;
 
 namespace Scripts.Infostructure.States
 {
+    public enum Scenes
+    {
+        Entry = 0,
+        City = 1,
+        TestScene = 2,
+    }
     public class GameStateMachine
     {
         private readonly Dictionary<Type, IExitableState> _states;

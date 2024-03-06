@@ -33,7 +33,7 @@ namespace Scripts.Infostructure.States
 
         private PlayerProgress NewProgress()
         {
-            PlayerProgress progress = new PlayerProgress();
+            PlayerProgress progress = new PlayerProgress(initialLevel: "City");
             return progress; 
         }
 
