@@ -29,6 +29,7 @@ namespace Scripts.Player
 
         private void Update()
         {
+
             Animator.SetFloat(MoveHashX, CharacterController.velocity.x, 0.1f, Time.deltaTime);
             Animator.SetFloat(MoveHashZ, CharacterController.velocity.z, 0.1f, Time.deltaTime);
         }
