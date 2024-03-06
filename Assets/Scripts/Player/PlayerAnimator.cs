@@ -6,7 +6,9 @@ namespace Scripts.Player
 {
     public class PlayerAnimator : MonoBehaviour, IAnimationStateReader
     {
-        private static readonly int MoveHash = Animator.StringToHash("Walking");
+
+        private static readonly int MoveHashX = Animator.StringToHash("X");
+        private static readonly int MoveHashZ = Animator.StringToHash("Z");
         private static readonly int AttackHash = Animator.StringToHash("AttackNormal");
         private static readonly int HitHash = Animator.StringToHash("Hit");
         private static readonly int DieHash = Animator.StringToHash("Die");
@@ -27,7 +29,8 @@ namespace Scripts.Player
 
         private void Update()
         {
-            //Animator.SetFloat(MoveHash, CharacterController.velocity.magnitude, 0.1f, Time.deltaTime);
+            Animator.SetFloat(MoveHashX, CharacterController.velocity.x, 0.1f, Time.deltaTime);
+            Animator.SetFloat(MoveHashZ, CharacterController.velocity.z, 0.1f, Time.deltaTime);
         }
 
         public bool IsAttacking => State == AnimatorState.Attack;
@@ -66,5 +69,8 @@ namespace Scripts.Player
 
             return state;
         }
+
+
+
     }
 }
