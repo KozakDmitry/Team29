@@ -11,8 +11,11 @@ namespace Scripts.Player
         public CharacterController characterController;
         public float movementSpeed;
         public float _rotationSpeed;
+        public PlayerAnimator playerAnimator;
 
         private IInputService _inputService;
+
+
 
         private void Awake()
         {
@@ -27,19 +30,24 @@ namespace Scripts.Player
                 movementVector = Camera.main.transform.TransformDirection(_inputService.Axis);
                 movementVector.y = 0;
                 movementVector.Normalize();
-
+                playerAnimator.SetAnimator(movementVector);
                 transform.forward = movementVector;
 
-                
+            }
+            else
+            {
+                playerAnimator.Animator.SetBool("IsMoving", false);
             }
 
             movementVector += Physics.gravity;
 
             characterController.Move(movementVector * (movementSpeed * Time.deltaTime));
-        
+
         }
 
-       
+
+
+
 
     }
 }

@@ -6,37 +6,41 @@ using UnityEngine;
 
 namespace Scripts.Logic
 {
-	public class Bullet : MonoBehaviour
-	{
+    public class Bullet : MonoBehaviour
+    {
 
-		public float force;
-		public float lifetime;
-		public float damage;
-		[HideInInspector]
-		public PlayerMove player;
+        public float force;
+        public float lifetime;
+        public float damage;
+        [HideInInspector]
+        public PlayerMove player;
 
-		void OnEnable()
-		{
-			StartCoroutine(DestroySelf());
-		}
-
-		void Update()
-		{
-			transform.Translate(Vector3.forward * Time.deltaTime * force);
-		}
-
-		void OnTriggerEnter(Collider other)
-		{
-				other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
-				Destroy(this.gameObject);
+        void OnEnable()
+        {
+            StartCoroutine(DestroySelf());
         }
 
-		IEnumerator DestroySelf()
-		{
-			yield return new WaitForSeconds(lifetime);
+        void Update()
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * force);
+        }
 
-			//player.DisableBullet(gameObject);
-		}
-	}
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+                Destroy(this.gameObject);
+            }
+                
+        }
+
+        IEnumerator DestroySelf()
+        {
+            yield return new WaitForSeconds(lifetime);
+
+            //player.DisableBullet(gameObject);
+        }
+    }
 
 }

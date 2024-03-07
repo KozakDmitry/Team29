@@ -9,6 +9,7 @@ namespace Scripts.Player
 
         private static readonly int MoveHashX = Animator.StringToHash("X");
         private static readonly int MoveHashZ = Animator.StringToHash("Z");
+        private static readonly int MovingBool = Animator.StringToHash("IsMoving");
         private static readonly int AttackHash = Animator.StringToHash("AttackNormal");
         private static readonly int HitHash = Animator.StringToHash("Hit");
         private static readonly int DieHash = Animator.StringToHash("Die");
@@ -19,6 +20,8 @@ namespace Scripts.Player
         private readonly int _walkingStateHash = Animator.StringToHash("Run");
         private readonly int _deathStateHash = Animator.StringToHash("Die");
 
+        private Vector3 currentVector;
+
         public event Action<AnimatorState> StateEntered;
         public event Action<AnimatorState> StateExited;
 
@@ -27,11 +30,11 @@ namespace Scripts.Player
         public Animator Animator;
         public CharacterController CharacterController;
 
-        private void Update()
+        public void SetAnimator(Vector3 movement)
         {
-
-            Animator.SetFloat(MoveHashX, CharacterController.velocity.x, 0.1f, Time.deltaTime);
-            Animator.SetFloat(MoveHashZ, CharacterController.velocity.z, 0.1f, Time.deltaTime);
+            Animator.SetBool("IsMoving", true);
+            Animator.SetFloat("X", movement.x);
+            Animator.SetFloat("Z", movement.z);
         }
 
         public bool IsAttacking => State == AnimatorState.Attack;
