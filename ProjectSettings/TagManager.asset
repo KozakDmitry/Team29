@@ -15,8 +15,8 @@ TagManager:
   - Water
   - UI
   - AttackEntities
+  - AttackProjectiles
   - AttackZone
-  - 
   - Enemy
   - Player
   - 

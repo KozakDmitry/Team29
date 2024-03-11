@@ -15,21 +15,23 @@ namespace Scripts.Logic
         [HideInInspector]
         public PlayerMove player;
 
-        void OnEnable()
-        {
+        void OnEnable() => 
             StartCoroutine(DestroySelf());
-        }
 
-        void Update()
-        {
+        void Update() => 
             transform.Translate(Vector3.forward * Time.deltaTime * force);
-        }
 
         void OnTriggerEnter(Collider other)
         {
+            Debug.Log(other.tag);
             if (other.gameObject.CompareTag("Enemy"))
             {
+
                 other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+                Destroy(this.gameObject);
+            }
+            else
+            {
                 Destroy(this.gameObject);
             }
                 
@@ -38,8 +40,6 @@ namespace Scripts.Logic
         IEnumerator DestroySelf()
         {
             yield return new WaitForSeconds(lifetime);
-
-            //player.DisableBullet(gameObject);
         }
     }
 

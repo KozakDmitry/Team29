@@ -69,19 +69,17 @@ namespace Scripts.Logic
             //float spawnX = Random.Range(spawnXMin, spawnXMax);
             //float spawnY = Random.Range(spawnZMin, spawnZMax);
 
-            Vector3 spawnPosition = GetRandomPointOnNavMesh(transform.position, cameraWidth);
-            Debug.Log("Random point: " + spawnPosition);
             //Vector3 spawnPosition = new Vector3(spawnX,  0f, spawnY);
 
 
-
+            Vector3 spawnPosition = GetRandomPointOnNavMesh(transform.position, cameraWidth);
             return spawnPosition;
         }
 
         Vector3 GetRandomPointOnNavMesh(Vector3 center, float radius)
         {
             NavMeshHit hit;
-            Vector3 randomPosition = center + Random.insideUnitSphere * radius;
+            Vector3 randomPosition = center + Random.onUnitSphere * radius;
             NavMesh.SamplePosition(randomPosition, out hit, radius, NavMesh.AllAreas);
 
             return hit.position;

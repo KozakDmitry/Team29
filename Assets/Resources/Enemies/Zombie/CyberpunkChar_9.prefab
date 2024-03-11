@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 9077157818895854538}
   - component: {fileID: 5000000314085116724}
   - component: {fileID: 6698025256978621972}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: AttackAgro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
