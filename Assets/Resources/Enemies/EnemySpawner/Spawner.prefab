@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1763708642011272156, guid: 6d444ad2b56e086499bad9a1b6441b0d, type: 3}
-  area: {fileID: 0}
   spawning: 1
   spawnRange: 15
   delay: 2
   MonsterTypeID: 0
+  NavMeshData: {fileID: 23800000, guid: bf5f9c5e08491d4419cbce4925827ed0, type: 2}

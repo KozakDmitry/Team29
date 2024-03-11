@@ -48,8 +48,6 @@ namespace Scripts.Enemy
             _picked = true;
 
             UpdateData();
-            //ShowText();
-            Debug.Log("Collected!");
             Destroy(this.gameObject);
         }
 
@@ -57,14 +55,6 @@ namespace Scripts.Enemy
         {
             _progress.LootData.Collect(_loot);
         }
-
-
-
-        //private void ShowText()
-        //{
-        //    LootText.text = $"{_loot.value}";
-        //    PickUpPopUp.SetActive(true);
-        //}
 
     }
 }

@@ -1,16 +1,16 @@
 
 using Scripts.Infostructure.Factory;
-using Scripts.Infostructure.Services;
 using Scripts.Infostructure.Services.DifficultyDirector;
 using Scripts.StaticData;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Scripts.Logic
 {
     public class EnemySpawner : MonoBehaviour
     {
-        
+
         public GameObject enemyPrefab;
         public bool spawning = true;
 
@@ -18,7 +18,6 @@ namespace Scripts.Logic
         public float delay;
 
         public MonsterTypeID MonsterTypeID;
-        
 
         private IGameFactory _factory;
         private IDifficultyDirectorService _difficultyDirectorService;
@@ -49,7 +48,7 @@ namespace Scripts.Logic
         }
 
         public void StartSpawning()
-        { 
+        {
             StartCoroutine(Spawn());
         }
 
@@ -60,33 +59,33 @@ namespace Scripts.Logic
             float cameraHeight = 2f * mainCamera.orthographicSize;
             float cameraWidth = cameraHeight * mainCamera.aspect;
 
-            float spawnPadding = 2f;
+            //float spawnPadding = 2f;
 
-            float spawnXMin = mainCamera.transform.position.x - cameraWidth / 2 - spawnPadding;
-            float spawnXMax = mainCamera.transform.position.x + cameraWidth / 2 + spawnPadding;
-            float spawnZMin = mainCamera.transform.position.z - cameraHeight / 2 - spawnPadding;
-            float spawnZMax = mainCamera.transform.position.z + cameraHeight / 2 + spawnPadding;
+            //float spawnXMin = mainCamera.transform.position.x - cameraWidth / 2 - spawnPadding;
+            //float spawnXMax = mainCamera.transform.position.x + cameraWidth / 2 + spawnPadding;
+            //float spawnZMin = mainCamera.transform.position.z - cameraHeight / 2 - spawnPadding;
+            //float spawnZMax = mainCamera.transform.position.z + cameraHeight / 2 + spawnPadding;
 
-            float spawnX = Random.Range(spawnXMin, spawnXMax);
-            float spawnY = Random.Range(spawnZMin, spawnZMax);
+            //float spawnX = Random.Range(spawnXMin, spawnXMax);
+            //float spawnY = Random.Range(spawnZMin, spawnZMax);
 
-            Vector3 spawnPosition = new Vector3(spawnX,  0f, spawnY);
+            Vector3 spawnPosition = GetRandomPointOnNavMesh(transform.position, cameraWidth);
+            Debug.Log("Random point: " + spawnPosition);
+            //Vector3 spawnPosition = new Vector3(spawnX,  0f, spawnY);
 
-            //Vector3 spawnPosition = player.position;
-            //Vector3 randomPosition = new Vector3(Random.Range(-spawnRange, spawnRange), 0, Random.Range(-spawnRange, spawnRange));
 
-            //spawnPosition += randomPosition;
-
-            //while (!ValidSpawnPoint(spawnPosition))
-            //{
-            //    randomPosition = new Vector3(Random.Range(-spawnRange, spawnRange), 0, Random.Range(-spawnRange, spawnRange));
-            //    spawnPosition = player.position + randomPosition;
-            //}
 
             return spawnPosition;
         }
 
+        Vector3 GetRandomPointOnNavMesh(Vector3 center, float radius)
+        {
+            NavMeshHit hit;
+            Vector3 randomPosition = center + Random.insideUnitSphere * radius;
+            NavMesh.SamplePosition(randomPosition, out hit, radius, NavMesh.AllAreas);
 
+            return hit.position;
+        }
 
         IEnumerator Spawn()
         {

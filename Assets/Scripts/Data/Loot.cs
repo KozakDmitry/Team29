@@ -6,7 +6,7 @@ namespace Scripts.Data
     public class Loot
     {
 
-        public Loot(int value =0)
+        public Loot(int value =10)
         {
             this.value = value;
         }
