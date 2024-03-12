@@ -84,8 +84,8 @@ namespace Scripts.Enemy
         private void StartAttack()
         {
             _attackCooldown = AttackCooldown;
-            //transform.LookAt(_heroTransform);
-            //animator.PlayAttack();
+            transform.LookAt(_heroTransform);
+            animator.PlayAttack();
             _isAttacking = true;
             OnAttack();
         }
