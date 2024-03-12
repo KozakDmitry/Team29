@@ -72,7 +72,7 @@ namespace Scripts.Enemy
         public void DisableAttack() =>
             _attackIsActive = false;
         private bool CanAttack() =>
-            CooldownIsUp() && _attackIsActive;
+            CooldownIsUp() && _attackIsActive && !_isAttacking;
 
 
         private bool CooldownIsUp() =>
@@ -87,7 +87,6 @@ namespace Scripts.Enemy
             transform.LookAt(_heroTransform);
             animator.PlayAttack();
             _isAttacking = true;
-            OnAttack();
         }
 
         

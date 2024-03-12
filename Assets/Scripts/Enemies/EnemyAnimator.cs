@@ -8,7 +8,7 @@ namespace Scripts.Enemy
 {
     public class EnemyAnimator : MonoBehaviour, IAnimationStateReader
     {
-        private static readonly int Attack = Animator.StringToHash("Attack_1");
+        private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int Speed = Animator.StringToHash("Speed");
         private static readonly int IsMoving = Animator.StringToHash("IsMoving");
         private static readonly int Hit = Animator.StringToHash("Hit");
@@ -38,9 +38,11 @@ namespace Scripts.Enemy
             _animator.SetFloat(Speed, speed);
         }
 
-        public void StopMoving() => _animator.SetBool(IsMoving, false);
+        public void StopMoving() => 
+            _animator.SetBool(IsMoving, false);
 
-        public void PlayAttack() => _animator.SetTrigger(Attack);
+        public void PlayAttack() => 
+            _animator.SetTrigger(Attack);
 
         public void EnteredState(int stateHash)
         {
