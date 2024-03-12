@@ -32,14 +32,17 @@ namespace Scripts.Enemy
         public void PlayHit() => _animator.SetTrigger(Hit);
         public void PlayDeath() => _animator.SetTrigger(Die);
 
-        public void Move(float speed)
+        public void Move()
         {
             _animator.SetBool(IsMoving, true);
-            _animator.SetFloat(Speed, speed);
+            //_animator.SetFloat(Speed, speed);
         }
 
-        public void StopMoving() => 
+        public void StopMoving()
+        {
             _animator.SetBool(IsMoving, false);
+
+        }
 
         public void PlayAttack() => 
             _animator.SetTrigger(Attack);
