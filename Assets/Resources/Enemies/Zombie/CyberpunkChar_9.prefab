@@ -888,6 +888,7 @@ MonoBehaviour:
   Agent: {fileID: -3258248329063472798}
   speed: 2
   Animator: {fileID: -2724974976322400434}
+  Attack: {fileID: -3060285236457951469}
 --- !u!114 &-2724974976322400434
 MonoBehaviour:
   m_ObjectHideFlags: 0

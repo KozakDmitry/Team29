@@ -1039,6 +1039,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6077625698867509510}
     - target: {fileID: 6534852608024527545, guid: 6d444ad2b56e086499bad9a1b6441b0d, type: 3}
+      propertyPath: Attack
+      value: 
+      objectReference: {fileID: 5987499410629343095}
+    - target: {fileID: 6534852608024527545, guid: 6d444ad2b56e086499bad9a1b6441b0d, type: 3}
       propertyPath: Animator
       value: 
       objectReference: {fileID: 6682921306714314538}
@@ -1060,6 +1064,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1383206547671091558, guid: 6d444ad2b56e086499bad9a1b6441b0d, type: 3}
   m_PrefabInstance: {fileID: 473001342514829412}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5987499410629343095 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -3060285236457951469, guid: 6d444ad2b56e086499bad9a1b6441b0d, type: 3}
+  m_PrefabInstance: {fileID: 473001342514829412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a077960f497794299285ecfe03bd9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &6077625698867509510 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: -3258248329063472798, guid: 6d444ad2b56e086499bad9a1b6441b0d, type: 3}

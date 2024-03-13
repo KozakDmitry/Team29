@@ -22,6 +22,11 @@ namespace Scripts.Enemy
         private Collider[] _hits = new Collider[1];
         private bool _attackIsActive;
 
+
+        public bool IsAttacking()
+        {
+            return _isAttacking;
+        }
         private void Awake()
         {
             _layerMask = 1 << LayerMask.NameToLayer("Player");

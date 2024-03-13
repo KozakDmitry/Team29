@@ -6,12 +6,15 @@ namespace Scripts.Enemies
 {
     [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(EnemyAnimator))]
+    [RequireComponent(typeof(Attack))]
     public class AnimateAlongAgent : MonoBehaviour
     {
         public NavMeshAgent Agent;
         public float speed;
         public EnemyAnimator Animator;
-        private const float MinimalVelocity = 0.1f;
+        public Attack Attack;
+
+        //private const float MinimalVelocity = 0.1f;
         private void Update()
         {
             if (ShouldMove())
@@ -27,7 +30,6 @@ namespace Scripts.Enemies
         }
 
         private bool ShouldMove() =>
-            //Agent.velocity.magnitude > MinimalVelocity && 
-            Agent.remainingDistance > Agent.radius+0.5;
+            Agent.remainingDistance > Agent.radius+0.5 & !Attack.IsAttacking();
     }
 }
